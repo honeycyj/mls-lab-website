@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { MotionConfig, motion, useReducedMotion } from "motion/react";
+import { CapabilitiesSection } from "./components/sections/Capabilities/CapabilitiesSection";
 
 const announcement =
   "ICASSP 2026 马栏山音视频实验室发布声纹识别领域最新创新成果";
@@ -49,20 +49,6 @@ const mediaCards = [
   },
 ];
 
-const capabilityCards = [
-  { title: "视频技术", description: "整合核心技术、创新见解和以人为本的设计理念，引领未来娱乐体验的新趋势。", featured: true },
-  { title: "视频采集硬件", description: "面向感知端设备与实时采集链路，构建稳定、高质量的采集底座。" },
-  { title: "AIGC 视频翻译技术", description: "提供字幕擦除、声纹配音和多语种替换等高精度能力。" },
-  { title: "数据传输", description: "围绕高带宽低延时链路和边缘协同，支撑复杂场景分发。" },
-  { title: "智能音视技术", description: "通过计算感知与智能分析，形成内容理解与智能编排能力。" },
-  { title: "空间全景声", description: "强化声音定位、层次和空间感，提升沉浸式听觉体验。" },
-  { title: "端侧 AI 交互控制技术", description: "让设备端具备更稳定、低功耗的智能交互能力。" },
-  { title: "空间音频技术", description: "从声场建模到感知优化，持续提升空间声音表达力。" },
-  { title: "视频技术", description: "面向行业场景沉淀可快速复用的视频核心模块。" },
-  { title: "视频技术", description: "围绕生产、传输与终端体验持续打磨应用级方案。" },
-  { title: "视频技术", description: "以工程方法推进视听系统的整体效率和视觉表现。" },
-];
-
 const solutionTabs = ["短剧行业", "智能ITO", "音视频技术", "星闪"];
 
 const environmentImages = [
@@ -88,122 +74,8 @@ const legalLinks = ["隐私权政策", "使用条款", "网站问题反馈"];
 const socialLinks = ["微", "B", "红", "信", "抖"];
 const easeOut = [0, 0.62, 0.5, 1] as const;
 
-type RevealConfig = {
-  initial: { opacity: number; y?: number };
-  whileInView: { opacity: number; y?: number };
-  viewport: { once: boolean; amount: number };
-  transition: { duration: number; ease: typeof easeOut; delay: number };
-};
-
-type CapabilityCardData = (typeof capabilityCards)[number];
-
-function CapabilityCard({
-  card,
-  index,
-  reveal,
-  reduceMotion,
-  isHovered,
-  onHoverStart,
-  onHoverEnd,
-}: {
-  card: CapabilityCardData;
-  index: number;
-  reveal: RevealConfig;
-  reduceMotion: boolean;
-  isHovered: boolean;
-  onHoverStart: () => void;
-  onHoverEnd: () => void;
-}) {
-  const isCta = index === capabilityCards.length - 1;
-  const hoverBackground = "hsla(240, 70%, 11%, 1)";
-
-  return (
-    <motion.article
-      className={[
-        "capability-card",
-        card.featured ? "capability-card--featured" : "",
-        isCta ? "capability-card--purple" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
-      onHoverStart={onHoverStart}
-      onHoverEnd={onHoverEnd}
-      initial={reveal.initial}
-      whileInView={reveal.whileInView}
-      viewport={reveal.viewport}
-      transition={reveal.transition}
-      animate={{ y: 0 }}
-    >
-      <motion.div
-        className="capability-card__overlay"
-        aria-hidden="true"
-        initial={false}
-        animate={
-          isHovered
-            ? { y: "0%", backgroundColor: hoverBackground }
-            : reduceMotion
-              ? { y: "100%", backgroundColor: hoverBackground }
-              : { y: "102%", backgroundColor: hoverBackground }
-        }
-        transition={{ duration: reduceMotion ? 0.2 : 0.38, ease: easeOut }}
-      />
-      <div className="capability-card__content">
-        <motion.h3
-          animate={{
-            x: isHovered && !reduceMotion && !isCta ? 6 : 0,
-            color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
-          }}
-          transition={{ duration: 0.28, ease: easeOut }}
-        >
-          {isCta ? "探索更多能力 →" : card.title}
-        </motion.h3>
-        {!isCta ? (
-          <motion.p
-            animate={{ color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)" }}
-            transition={{ duration: 0.24, ease: easeOut }}
-          >
-            {card.description}
-          </motion.p>
-        ) : null}
-        {!isCta ? (
-          <div className="capability-card__footer">
-            <motion.span
-              className="capability-card__icon"
-              animate={
-                isHovered
-                  ? {
-                      backgroundColor: "rgba(255,255,255,0.18)",
-                      color: "#ffffff",
-                      rotate: 90,
-                    }
-                  : { backgroundColor: "#bec3cb", color: "#262a33", rotate: 0 }
-              }
-              transition={{ duration: 0.24, ease: easeOut }}
-            >
-              +
-            </motion.span>
-            {card.featured ? (
-              <motion.a
-                href="#solutions"
-                animate={{
-                  x: isHovered && !reduceMotion ? 4 : 0,
-                  color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
-                }}
-                transition={{ duration: 0.24, ease: easeOut }}
-              >
-                了解更多
-              </motion.a>
-            ) : null}
-          </div>
-        ) : null}
-      </div>
-    </motion.article>
-  );
-}
-
 function HomePage() {
   const reduceMotion = useReducedMotion() ?? false;
-  const [hoveredCapability, setHoveredCapability] = useState<number | null>(null);
 
   const reveal = (delay = 0, amount = 0.2) => ({
     initial: { opacity: 0, ...(reduceMotion ? {} : { y: 48 }) },
@@ -322,32 +194,7 @@ function HomePage() {
           </div>
         </motion.section>
 
-        <motion.section className="section section--capabilities" id="capabilities" {...reveal()}>
-          <motion.div className="section__heading section__heading--wide" {...reveal(0.04)}>
-            <div>
-              <h2>实验室技术原子能力与布局</h2>
-              <p>
-                围绕声音与影像的生成、编码、传输与重建机制，我们构建跨学科技术体系，致力于提升沉浸式听觉与视觉体验的真实度、空间感与表达力。
-              </p>
-            </div>
-            <span>↓</span>
-          </motion.div>
-
-          <div className="capability-grid">
-            {capabilityCards.map((card, index) => (
-              <CapabilityCard
-                key={`${card.title}-${index}`}
-                card={card}
-                index={index}
-                reveal={reveal(0.04 + (index % 4) * 0.06, 0.15)}
-                reduceMotion={reduceMotion}
-                isHovered={hoveredCapability === index}
-                onHoverStart={() => setHoveredCapability(index)}
-                onHoverEnd={() => setHoveredCapability((current) => (current === index ? null : current))}
-              />
-            ))}
-          </div>
-        </motion.section>
+        <CapabilitiesSection />
 
         <section className="story-band">
           <motion.div className="story-band__inner" {...reveal()}>

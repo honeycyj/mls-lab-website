@@ -454,19 +454,6 @@ body {
   color: inherit;
 }
 
-.capability-card--purple {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: var(--panel);
-  color: inherit;
-}
-
-.capability-card--purple h3 {
-  font-size: 28px;
-  line-height: 36px;
-}
-
 .capability-card__overlay {
   position: absolute;
   inset: 0;
@@ -512,6 +499,30 @@ body {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.capability-explore-card {
+  min-height: 308px;
+  display: block;
+  background: #b379f0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.capability-explore-card__content {
+  min-height: 308px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.capability-explore-card__content h3 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #ffffff;
 }
 
 .story-band {
