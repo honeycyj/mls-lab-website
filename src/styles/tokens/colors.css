@@ -1,0 +1,12 @@
+:root {
+  --color-sand-50: #fffaf2;
+  --color-sand-100: #f7edde;
+  --color-sand-300: #dfccb6;
+  --color-ink-700: #233042;
+  --color-ink-500: #5e6875;
+  --color-brand-500: #ff6b4a;
+  --color-brand-700: #ca4d32;
+  --color-white: #ffffff;
+  --color-shadow: rgba(42, 26, 11, 0.12);
+  --color-shadow-strong: rgba(42, 26, 11, 0.2);
+}

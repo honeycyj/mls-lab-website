@@ -1,0 +1,14 @@
+:root {
+  --page-background:
+    radial-gradient(circle at left top, rgba(255, 107, 74, 0.18), transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(255, 196, 94, 0.18), transparent 18%),
+    linear-gradient(180deg, #fff9f2 0%, #f5ebdd 100%);
+  --surface-base: rgba(255, 250, 242, 0.82);
+  --surface-strong: rgba(255, 250, 242, 0.96);
+  --border-subtle: rgba(35, 48, 66, 0.1);
+  --text-primary: var(--color-ink-700);
+  --text-secondary: var(--color-ink-500);
+  --text-inverse: var(--color-white);
+  --action-primary: var(--color-brand-500);
+  --action-primary-hover: var(--color-brand-700);
+}
