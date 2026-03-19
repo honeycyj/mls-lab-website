@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 
+import { PlusIcon } from "../../foundation/Icons/PlusIcon";
 import { capabilityEaseOut, type CapabilityCardProps } from "./types";
 
 export function CapabilityCard({
@@ -15,6 +16,7 @@ export function CapabilityCard({
   onHoverEnd,
 }: CapabilityCardProps) {
   const hoverBackground = "hsla(240, 70%, 11%, 1)";
+  const accentIconBackground = "var(--color-brand-03)";
 
   return (
     <motion.article
@@ -46,28 +48,30 @@ export function CapabilityCard({
         transition={{ duration: reduceMotion ? 0.2 : 0.38, ease: capabilityEaseOut }}
       />
       <div className="capability-card__content">
-        <motion.h3
-          animate={{
-            x: isHovered && !reduceMotion ? 6 : 0,
-            color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
-          }}
-          transition={{ duration: 0.28, ease: capabilityEaseOut }}
-        >
-          {title}
-        </motion.h3>
-        <motion.p
-          animate={{ color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)" }}
-          transition={{ duration: 0.24, ease: capabilityEaseOut }}
-        >
-          {description}
-        </motion.p>
+        <div className="capability-card__heading">
+          <motion.h3
+            animate={{
+              color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
+            }}
+            transition={{ duration: 0.28, ease: capabilityEaseOut }}
+          >
+            {title}
+          </motion.h3>
+          <motion.p
+            animate={{ color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)" }}
+            transition={{ duration: 0.24, ease: capabilityEaseOut }}
+          >
+            {description}
+          </motion.p>
+        </div>
         <div className="capability-card__footer">
           <motion.span
             className="capability-card__icon"
+            style={{ transformOrigin: "50% 50%" }}
             animate={
               isHovered
                 ? {
-                    backgroundColor: "rgba(255,255,255,0.18)",
+                    backgroundColor: accentIconBackground,
                     color: "#ffffff",
                     rotate: 90,
                   }
@@ -75,20 +79,21 @@ export function CapabilityCard({
             }
             transition={{ duration: 0.24, ease: capabilityEaseOut }}
           >
-            +
+            <PlusIcon size={14} strokeWidth={1.25} />
           </motion.span>
-          {featured ? (
-            <motion.a
-              href={linkHref}
-              animate={{
-                x: isHovered && !reduceMotion ? 4 : 0,
-                color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
-              }}
-              transition={{ duration: 0.24, ease: capabilityEaseOut }}
-            >
-              {linkLabel}
-            </motion.a>
-          ) : null}
+          <motion.a
+            href={linkHref}
+            style={{ pointerEvents: isHovered ? "auto" : "none", visibility: isHovered ? "visible" : "hidden" }}
+            animate={{
+              opacity: isHovered ? 1 : 0,
+              color: isHovered ? "#ffffff" : "rgba(0, 0, 0, 0.85)",
+            }}
+            transition={{ duration: 0.24, ease: capabilityEaseOut }}
+            aria-hidden={!isHovered}
+            tabIndex={isHovered ? 0 : -1}
+          >
+            {linkLabel}
+          </motion.a>
         </div>
       </div>
     </motion.article>

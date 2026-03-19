@@ -1,8 +1,0 @@
-:root {
-  --duration-fast: 180ms;
-  --duration-base: 280ms;
-  --duration-slow: 720ms;
-  --easing-standard: ease;
-  --shadow-soft: 0 24px 60px var(--color-shadow);
-  --shadow-lift: 0 32px 72px var(--color-shadow-strong);
-}
