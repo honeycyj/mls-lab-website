@@ -1,6 +1,6 @@
 # mls-lab-website
 
-实验室官网效果展示
+实验室官网效果展示。
 
 ## Stack
 
@@ -24,38 +24,37 @@ npm run typecheck
 mls-lab-website/
 ├─ public/
 ├─ src/
-│  ├─ assets/
 │  ├─ components/
 │  │  ├─ foundation/
-│  │  │  ├─ Button/
-│  │  │  ├─ Container/
-│  │  │  └─ SectionTitle/
+│  │  │  ├─ GlobalCursor/
+│  │  │  ├─ Icons/
+│  │  │  └─ PageMotion/
 │  │  ├─ layout/
-│  │  │  ├─ Header/
-│  │  │  └─ Footer/
+│  │  │  ├─ Footer/
+│  │  │  └─ Header/
 │  │  └─ sections/
-│  │     ├─ Hero/
-│  │     ├─ About/
-│  │     ├─ Solutions/
-│  │     └─ Contact/
-│  ├─ data/
+│  │     └─ Capabilities/
+│  ├─ hooks/
+│  ├─ pages/
+│  │  ├─ About/
+│  │  └─ Home/
 │  ├─ styles/
 │  │  ├─ tokens/
-│  │  ├─ semantic.css
 │  │  ├─ base.css
-│  │  ├─ utilities.css
+│  │  ├─ semantic.css
 │  │  └─ index.css
 │  ├─ App.tsx
 │  └─ main.tsx
-├─ .gitignore
 ├─ README.md
 ├─ package.json
+├─ tsconfig.json
 └─ vite.config.ts
 ```
 
 ## Notes
 
-- `foundation` 放底层通用组件。
-- `layout` 放站点框架组件。
-- `sections` 放页面内容区块。
-- `tokens + semantic` 用来管理基础样式和语义变量。
+- `foundation` 放底层能力组件，比如动效、图标、全局 cursor。
+- `layout` 放全站通用框架组件，当前的 `Header` 和 `Footer` 已经各自收口了内容和样式。
+- `pages` 按页面拆分页面组件、页面数据和页面样式。
+- `styles/tokens + semantic` 管理全局设计 token 和语义变量。
+- 全局样式入口是 `src/styles/index.css`，layout 组件样式也从这里统一注入。

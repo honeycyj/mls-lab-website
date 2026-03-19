@@ -2,5 +2,7 @@
 @import "./tokens/typography.css";
 @import "./semantic.css";
 @import "./base.css";
+@import "../components/layout/Header/siteHeader.css";
+@import "../components/layout/Footer/siteFooter.css";
 @import "../pages/Home/home.css";
 @import "../pages/About/about.css";

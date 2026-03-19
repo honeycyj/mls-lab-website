@@ -1,21 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { headerNavItems, overviewMenuItems } from "./headerContent";
 import { NavDropdown } from "./NavDropdown";
-
-const navItems = [
-  { label: "能力引擎", href: "#capabilities" },
-  { label: "产业赋能", href: "#solutions" },
-  { label: "测试服务", href: "#media" },
-  { label: "人才发展", href: "#team" },
-  { label: "新闻动态", href: "#media" },
-  { label: "实验室资源", href: "#contact" },
-];
-
-const overviewMenuItems = [
-  { label: "实验室简介", href: "/about" },
-  { label: "管理团队" },
-  { label: "联系我们" },
-];
 
 const HEADER_INITIAL_OFFSET = -18;
 const HEADER_HIDDEN_OFFSET = 72;
@@ -130,7 +116,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
 
   return (
     <motion.header
-      className="homepage__header"
+      className="site-header"
       initial={{
         opacity: 0,
         y: reduceMotion ? 0 : HEADER_INITIAL_OFFSET,
@@ -150,26 +136,26 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
         },
       }}
     >
-      <div className="homepage__header-inner">
-        <a className="homepage__logo" href={homeHref} aria-label="马栏山音视频实验室">
+      <div className="site-header__inner">
+        <a className="site-header__logo" href={homeHref} aria-label="马栏山音视频实验室">
           <img src="/assets/home/nav-logo.svg" alt="" />
         </a>
-        <nav className="homepage__nav" aria-label="主导航">
+        <nav className="site-header__nav" aria-label="主导航">
           <NavDropdown label="实验室概况" items={overviewMenuItems} menuLabel="实验室概况菜单" />
-          {navItems.map((item) => (
-            <a key={item.label} className="homepage__nav-link" href={isHome ? item.href : `/${item.href}`}>
+          {headerNavItems.map((item) => (
+            <a key={item.label} className="site-header__nav-link" href={isHome ? item.href : `/${item.href}`}>
               {item.label}
             </a>
           ))}
         </nav>
-        <div className="homepage__header-actions">
-          <button className="homepage__icon-button" type="button" aria-label="搜索">
+        <div className="site-header__actions">
+          <button className="site-header__icon-button" type="button" aria-label="搜索">
             <SearchIcon />
           </button>
-          <button className="homepage__icon-button" type="button" aria-label="语言">
+          <button className="site-header__icon-button" type="button" aria-label="语言">
             <GlobeIcon />
           </button>
-          <a className="homepage__login" href={isHome ? "#contact" : "/#contact"}>
+          <a className="site-header__login" href={isHome ? "#contact" : "/#contact"}>
             登录
           </a>
         </div>
