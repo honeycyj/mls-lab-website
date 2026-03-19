@@ -45,6 +45,10 @@ mls-lab-website/
 │  │  └─ index.css
 │  ├─ App.tsx
 │  └─ main.tsx
+├─ deploy/
+│  └─ nginx/
+│     └─ mls-lab-website.conf
+├─ netlify.toml
 ├─ README.md
 ├─ package.json
 ├─ tsconfig.json
@@ -58,3 +62,10 @@ mls-lab-website/
 - `pages` 按页面拆分页面组件、页面数据和页面样式。
 - `styles/tokens + semantic` 管理全局设计 token 和语义变量。
 - 全局样式入口是 `src/styles/index.css`，layout 组件样式也从这里统一注入。
+
+## Deploy Notes
+
+- Netlify 预览环境使用根目录的 `netlify.toml`，通过 rewrite 把前端路由回退到 `index.html`。
+- 自有服务器如果使用 Nginx，可以参考 `deploy/nginx/mls-lab-website.conf`。
+- 更完整的部署说明见 `deploy/DEPLOYMENT.md`。
+- 由于项目现在使用 `react-router` 的 `BrowserRouter`，无论部署到哪里，都需要保留 SPA fallback 规则。

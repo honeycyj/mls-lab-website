@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export type NavDropdownItem = {
   href?: string;
   label: string;
@@ -17,7 +19,11 @@ export function NavDropdown({ items, label, menuLabel }: NavDropdownProps) {
       </button>
       <div className="site-header__nav-menu" aria-label={menuLabel ?? `${label}菜单`}>
         {items.map((item) =>
-          item.href ? (
+          item.href?.startsWith("/") ? (
+            <Link key={item.label} className="site-header__nav-menu-link" to={item.href}>
+              {item.label}
+            </Link>
+          ) : item.href ? (
             <a key={item.label} className="site-header__nav-menu-link" href={item.href}>
               {item.label}
             </a>

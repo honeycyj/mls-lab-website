@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router";
 import { headerNavItems, overviewMenuItems } from "./headerContent";
 import { NavDropdown } from "./NavDropdown";
 
@@ -40,12 +41,10 @@ function GlobeIcon() {
   );
 }
 
-type SiteHeaderProps = {
-  isHome: boolean;
-};
-
-export function SiteHeader({ isHome }: SiteHeaderProps) {
+export function SiteHeader() {
   const reduceMotion = useReducedMotion() ?? false;
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const homeHref = isHome ? "#top" : "/";
   const [headerOffsetY, setHeaderOffsetY] = useState(0);
   const [isRevealing, setIsRevealing] = useState(false);

@@ -1,16 +1,19 @@
 import { MotionConfig } from "motion/react";
+import { Route, Routes } from "react-router";
 import { GlobalCursor } from "./components/foundation/GlobalCursor/GlobalCursor";
 import { AboutPage } from "./pages/About/AboutPage";
 import { HomePage } from "./pages/Home/HomePage";
+import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
 
 function App() {
-  const pathname =
-    typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/+$/, "") || "/";
-
   return (
     <MotionConfig reducedMotion="user">
       <GlobalCursor />
-      {pathname === "/about" ? <AboutPage /> : <HomePage />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </MotionConfig>
   );
 }

@@ -38,7 +38,7 @@ export function HomePage() {
         </PageIntro>
       ) : null}
 
-      <SiteHeader isHome={true} />
+      <SiteHeader />
 
       <main id="top">
         <section className="hero" id="overview">

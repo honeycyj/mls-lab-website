@@ -1,0 +1,63 @@
+.not-found-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 48px 24px;
+  background:
+    radial-gradient(circle at top, rgba(182, 157, 246, 0.18), transparent 34%),
+    #ffffff;
+}
+
+.not-found-page__card {
+  width: min(100%, 520px);
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  padding: 40px;
+  border: 1px solid rgba(8, 8, 46, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 50px rgba(8, 8, 46, 0.08);
+}
+
+.not-found-page__card p {
+  color: var(--text-brand);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-02);
+  line-height: var(--line-height-display-02);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.not-found-page__card h1 {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.not-found-page__card span {
+  color: var(--text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-01);
+  line-height: var(--line-height-body-01);
+}
+
+.not-found-page__card a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 2px;
+  background: var(--color-brand-01);
+  color: var(--text-onbrand);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-body-02);
+  line-height: var(--line-height-body-02);
+}
+
+.not-found-page__card a:hover,
+.not-found-page__card a:focus-visible {
+  background: #14144b;
+  outline: none;
+}

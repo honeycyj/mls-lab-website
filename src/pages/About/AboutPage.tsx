@@ -187,7 +187,7 @@ export function AboutPage() {
 
   return (
     <div className="homepage about-page">
-      <SiteHeader isHome={false} />
+      <SiteHeader />
 
       <main className="about-page__main">
         <section className="about-hero">
