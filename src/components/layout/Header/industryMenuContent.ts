@@ -1,5 +1,10 @@
+export type IndustryMenuItem = {
+  href?: string;
+  label: string;
+};
+
 export type IndustryMenuGroup = {
-  items: string[];
+  items: IndustryMenuItem[];
   title: string;
 };
 
@@ -12,28 +17,39 @@ export type IndustryMenuCollaboration = {
 export const industryMenuGroups: IndustryMenuGroup[] = [
   {
     title: "视频技术",
-    items: ["超高清转制解决方案", "制作域转码解决方案", "CR 图像识别解决方案"],
+    items: [
+      { label: "超高清转制解决方案" },
+      { label: "制作域转码解决方案" },
+      { label: "CR 图像识别解决方案" },
+    ],
   },
   {
     title: "视频技术",
-    items: ["超高清转制解决方案", "制作域转码解决方案", "CR 图像识别解决方案"],
+    items: [
+      { label: "超高清转制解决方案" },
+      { label: "制作域转码解决方案" },
+      { label: "CR 图像识别解决方案" },
+    ],
   },
   {
     title: "AI 应用",
     items: [
-      "AI 视频翻译工具",
-      "AI 动漫/影视制作流工具",
-      "AI陪伴智能交互",
-      "4DGS体积视频制播全链路",
+      { label: "AI 视频翻译工具", href: "https://mlsvnex.cn/" },
+      { label: "AI 动漫/影视制作流工具" },
+      { label: "AI陪伴智能交互" },
+      { label: "4DGS体积视频制播全链路" },
     ],
   },
   {
     title: "智能语音 IOT",
-    items: ["语音交互机器人解决方案"],
+    items: [{ label: "语音交互机器人解决方案" }],
   },
   {
     title: "星闪与GPMI",
-    items: ["GPMI微型插入式机顶盒", "GPMI信号转换方案"],
+    items: [
+      { label: "GPMI微型插入式机顶盒" },
+      { label: "GPMI信号转换方案" },
+    ],
   },
 ];
 

@@ -10,6 +10,17 @@ type IndustryMegaMenuProps = {
 };
 
 export function IndustryMegaMenu({ contactHref, solutionsHref }: IndustryMegaMenuProps) {
+  const getLinkProps = (href?: string) => {
+    const resolvedHref = href ?? solutionsHref;
+    const isExternal = /^https?:\/\//.test(resolvedHref);
+
+    return {
+      href: resolvedHref,
+      rel: isExternal ? "noreferrer" : undefined,
+      target: isExternal ? "_blank" : undefined,
+    };
+  };
+
   return (
     <div className="site-header__industry-menu" aria-label="产业赋能菜单">
       <div className="site-header__industry-main">
@@ -17,12 +28,15 @@ export function IndustryMegaMenu({ contactHref, solutionsHref }: IndustryMegaMen
           <p className="site-header__industry-label">解决方案</p>
           <div className="site-header__industry-groups">
             {industryMenuGroups.map((group) => (
-              <div key={group.title + group.items.join("")} className="site-header__industry-group">
+              <div
+                key={group.title + group.items.map((item) => item.label).join("")}
+                className="site-header__industry-group"
+              >
                 <p>{group.title}</p>
                 <div>
                   {group.items.map((item) => (
-                    <a key={item} href={solutionsHref}>
-                      {item}
+                    <a key={item.label} {...getLinkProps(item.href)}>
+                      {item.label}
                     </a>
                   ))}
                 </div>
