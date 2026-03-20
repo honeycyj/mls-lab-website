@@ -57,6 +57,6 @@ export const industryMenuFeature = {
   title: "两轨云台解决方案",
   description:
     "飞书AI全新升级，深度融合企业知识和业务流程，为业务带来全新AI生产力。",
-  image: "/assets/header/industry-menu-device.jpg",
+  video: "/assets/header/industry-menu-feature.mp4",
   cta: "全部解决方案",
 };

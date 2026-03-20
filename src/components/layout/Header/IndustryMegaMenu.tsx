@@ -51,7 +51,15 @@ export function IndustryMegaMenu({ contactHref, solutionsHref }: IndustryMegaMen
       <aside className="site-header__industry-feature">
         <div className="site-header__industry-feature-card">
           <div className="site-header__industry-feature-media">
-            <img src={industryMenuFeature.image} alt={industryMenuFeature.title} />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              src={industryMenuFeature.video}
+            />
           </div>
           <div className="site-header__industry-feature-copy">
             <h3>{industryMenuFeature.title}</h3>

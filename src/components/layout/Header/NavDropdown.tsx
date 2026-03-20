@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Link } from "react-router";
+import { useLocation } from "react-router";
 
 const DROPDOWN_CLOSE_DELAY = 90;
 
@@ -14,11 +14,12 @@ type NavDropdownProps = {
   items: NavDropdownItem[];
   label: string;
   menuLabel?: string;
-  overlayRoot: HTMLDivElement | null;
-  shell: HTMLDivElement | null;
+  overlayRootRef: RefObject<HTMLDivElement | null>;
+  shellRef: RefObject<HTMLDivElement | null>;
 };
 
-export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: NavDropdownProps) {
+export function NavDropdown({ items, label, menuLabel, overlayRootRef, shellRef }: NavDropdownProps) {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [menuLeft, setMenuLeft] = useState<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
@@ -45,13 +46,28 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
     }, DROPDOWN_CLOSE_DELAY);
   };
 
+  const closeMenuImmediately = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+
+    setIsOpen(false);
+  };
+
+  const handlePointerMove = () => {
+    if (!isOpen) {
+      openMenu();
+    }
+  };
+
   const updateMenuPosition = () => {
-    if (!triggerRef.current || !shell) {
+    if (!triggerRef.current || !shellRef.current) {
       return;
     }
 
     const triggerRect = triggerRef.current.getBoundingClientRect();
-    const shellRect = shell.getBoundingClientRect();
+    const shellRect = shellRef.current.getBoundingClientRect();
 
     setMenuLeft(triggerRect.left + triggerRect.width / 2 - shellRect.left);
   };
@@ -63,6 +79,10 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
       }
     };
   }, []);
+
+  useEffect(() => {
+    closeMenuImmediately();
+  }, [location.key]);
 
   useLayoutEffect(() => {
     if (!isOpen) {
@@ -82,9 +102,9 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
       window.removeEventListener("resize", handlePositionChange);
       window.removeEventListener("scroll", handlePositionChange);
     };
-  }, [isOpen, shell]);
+  }, [isOpen, shellRef]);
 
-  const menu = overlayRoot && menuLeft !== null ? createPortal(
+  const menu = overlayRootRef.current && menuLeft !== null ? createPortal(
     <AnimatePresence>
       {isOpen ? (
         <div
@@ -116,12 +136,13 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
           >
             {items.map((item) =>
-              item.href?.startsWith("/") ? (
-                <Link key={item.label} className="site-header__nav-menu-link" to={item.href}>
-                  {item.label}
-                </Link>
-              ) : item.href ? (
-                <a key={item.label} className="site-header__nav-menu-link" href={item.href}>
+              item.href ? (
+                <a
+                  key={item.label}
+                  className="site-header__nav-menu-link"
+                  href={item.href}
+                  onClick={closeMenuImmediately}
+                >
                   {item.label}
                 </a>
               ) : (
@@ -134,7 +155,7 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
         </div>
       ) : null}
     </AnimatePresence>,
-    overlayRoot,
+    overlayRootRef.current,
   ) : null;
 
   return (
@@ -143,6 +164,7 @@ export function NavDropdown({ items, label, menuLabel, overlayRoot, shell }: Nav
       className="site-header__nav-item site-header__nav-item--menu"
       onMouseEnter={openMenu}
       onMouseLeave={closeMenu}
+      onMouseMove={handlePointerMove}
       onFocusCapture={openMenu}
       onBlurCapture={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {

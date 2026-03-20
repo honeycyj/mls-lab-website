@@ -369,6 +369,13 @@
   display: block;
 }
 
+.site-header__industry-feature-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .site-header__industry-feature-copy {
   display: grid;
   gap: 10px;

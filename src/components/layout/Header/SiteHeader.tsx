@@ -193,8 +193,8 @@ export function SiteHeader() {
                   label={item.label}
                   items={item.menuItems}
                   menuLabel={`${item.label}菜单`}
-                  overlayRoot={overlayLayerRef.current}
-                  shell={headerShellRef.current}
+                  overlayRootRef={overlayLayerRef}
+                  shellRef={headerShellRef}
                 />
               ) : item.menuType === "industry" ? (
                 <div
