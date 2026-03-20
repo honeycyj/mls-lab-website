@@ -4,6 +4,7 @@ import { GlobalCursor } from "./components/foundation/GlobalCursor/GlobalCursor"
 import { AboutPage } from "./pages/About/AboutPage";
 import { HomePage } from "./pages/Home/HomePage";
 import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
+import { TeamPage } from "./pages/Team/TeamPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/team" element={<TeamPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </MotionConfig>
