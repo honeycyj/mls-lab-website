@@ -10,7 +10,6 @@ export type IndustryMenuGroup = {
 
 export type IndustryMenuCollaboration = {
   description: string;
-  featured?: boolean;
   title: string;
 };
 
@@ -61,7 +60,6 @@ export const industryCollaborations: IndustryMenuCollaboration[] = [
   {
     title: "品牌合作伙伴",
     description: "联合合作，助力产品规模化落地",
-    featured: true,
   },
   {
     title: "科研技术伙伴",

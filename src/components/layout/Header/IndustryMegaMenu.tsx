@@ -49,11 +49,7 @@ export function IndustryMegaMenu({ contactHref, solutionsHref }: IndustryMegaMen
           <p className="site-header__industry-label">与实验室合作</p>
           <div className="site-header__industry-collaborations">
             {industryCollaborations.map((item) => (
-              <a
-                key={item.title}
-                className={`site-header__industry-collab${item.featured ? " is-featured" : ""}`}
-                href={contactHref}
-              >
+              <a key={item.title} className="site-header__industry-collab" href={contactHref}>
                 <strong>{item.title}</strong>
                 <span>{item.description}</span>
               </a>

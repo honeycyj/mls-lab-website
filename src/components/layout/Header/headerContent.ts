@@ -35,5 +35,13 @@ export const headerNavItems: HeaderNavItem[] = [
     ],
   },
   { label: "新闻动态", href: "#media" },
-  { label: "实验室资源", href: "#contact" },
+  {
+    label: "实验室资源",
+    menuType: "dropdown",
+    menuItems: [
+      { label: "新闻活动", href: "/about" },
+      { label: "音视之声", href: "/voices" },
+      { label: "资源下载" },
+    ],
+  },
 ];

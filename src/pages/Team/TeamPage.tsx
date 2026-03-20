@@ -1,4 +1,5 @@
-import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
+import { PageReveal } from "../../components/foundation/PageMotion/PageMotion";
+import { PageSectionIntro } from "../../components/foundation/PageSectionIntro/PageSectionIntro";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import {
@@ -37,13 +38,12 @@ export function TeamPage() {
       <SiteHeader />
 
       <main className="team-page__main">
-        <section className="team-page__hero">
-          <PageIntro className="team-page__hero-inner" delay={0.06}>
-            <p className="team-page__eyebrow">{teamPageIntro.eyebrow}</p>
-            <h1>{teamPageIntro.title}</h1>
-            <p className="team-page__description">{teamPageIntro.description}</p>
-          </PageIntro>
-        </section>
+        <PageSectionIntro
+          className="team-page__hero"
+          eyebrow={teamPageIntro.eyebrow}
+          title={teamPageIntro.title}
+          description={teamPageIntro.description}
+        />
 
         <PageReveal className="team-page__divider" delay={0.1}>
           <div />

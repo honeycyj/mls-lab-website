@@ -321,7 +321,6 @@
   border-radius: 2px;
 }
 
-.site-header__industry-collab.is-featured,
 .site-header__industry-collab:hover,
 .site-header__industry-collab:focus-visible {
   background: var(--color-gray-surface);
