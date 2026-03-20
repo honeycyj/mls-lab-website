@@ -3,10 +3,13 @@
 @import "./semantic.css";
 @import "./base.css";
 @import "../components/foundation/PageSectionIntro/pageSectionIntro.css";
+@import "../components/foundation/SolutionSectionNav/solutionSectionNav.css";
+@import "../components/foundation/SolutionTestimonial/solutionTestimonial.css";
 @import "../components/layout/Header/siteHeader.css";
 @import "../components/layout/Footer/siteFooter.css";
 @import "../pages/Home/home.css";
 @import "../pages/About/about.css";
+@import "../pages/Solutions/solutions.css";
 @import "../pages/Team/team.css";
 @import "../pages/Voice/voice.css";
 @import "../pages/NotFound/notFound.css";

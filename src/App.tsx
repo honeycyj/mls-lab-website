@@ -4,6 +4,7 @@ import { GlobalCursor } from "./components/foundation/GlobalCursor/GlobalCursor"
 import { AboutPage } from "./pages/About/AboutPage";
 import { HomePage } from "./pages/Home/HomePage";
 import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
+import { UhdConversionPage } from "./pages/Solutions/UhdConversionPage";
 import { TeamPage } from "./pages/Team/TeamPage";
 import { VoicePage } from "./pages/Voice/VoicePage";
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/solutions/uhd-conversion" element={<UhdConversionPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/voices" element={<VoicePage />} />
         <Route path="*" element={<NotFoundPage />} />

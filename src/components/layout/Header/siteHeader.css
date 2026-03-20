@@ -78,9 +78,9 @@
   background: transparent;
   color: inherit;
   font-family: var(--font-family-display);
-  font-size: var(--font-size-display-01);
-  line-height: var(--line-height-display-01);
-  letter-spacing: var(--letter-spacing-display-01);
+  font-size: var(--font-size-label-02);
+  line-height: var(--line-height-label-02);
+  letter-spacing: var(--letter-spacing-label-02);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -256,8 +256,8 @@
   padding: 32px 32px 0;
   color: var(--color-text-brand);
   font-family: var(--font-family-display);
-  font-size: var(--font-size-display-02);
-  line-height: var(--line-height-body-01);
+  font-size: var(--font-size-caption-01);
+  line-height: var(--line-height-caption-01);
   letter-spacing: -0.06px;
 }
 
@@ -334,7 +334,7 @@
   font-size: var(--font-size-body-01);
   line-height: var(--line-height-body-01);
   letter-spacing: var(--letter-spacing-body-01);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
 .site-header__industry-collab span {

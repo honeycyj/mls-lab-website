@@ -51,7 +51,7 @@ h3 {
   font-family: var(--font-serif);
   line-height: var(--line-height-tight);
   letter-spacing: 0;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
 img,

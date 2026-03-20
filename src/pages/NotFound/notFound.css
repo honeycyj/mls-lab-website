@@ -23,8 +23,8 @@
 .not-found-page__card p {
   color: var(--text-brand);
   font-family: var(--font-family-display);
-  font-size: var(--font-size-display-02);
-  line-height: var(--line-height-display-02);
+  font-size: var(--font-size-caption-01);
+  line-height: var(--line-height-caption-01);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }

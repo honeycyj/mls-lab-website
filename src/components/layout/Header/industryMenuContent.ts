@@ -17,7 +17,7 @@ export const industryMenuGroups: IndustryMenuGroup[] = [
   {
     title: "视频技术",
     items: [
-      { label: "超高清转制解决方案" },
+      { label: "超高清转制解决方案", href: "/solutions/uhd-conversion" },
       { label: "制作域转码解决方案" },
       { label: "CR 图像识别解决方案" },
     ],
@@ -25,7 +25,7 @@ export const industryMenuGroups: IndustryMenuGroup[] = [
   {
     title: "视频技术",
     items: [
-      { label: "超高清转制解决方案" },
+      { label: "超高清转制解决方案", href: "/solutions/uhd-conversion" },
       { label: "制作域转码解决方案" },
       { label: "CR 图像识别解决方案" },
     ],

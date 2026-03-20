@@ -8,38 +8,103 @@
   --font-sans: var(--font-family-body);
   --font-serif: var(--font-family-display);
 
-  --font-size-display-01: 0.875rem;
-  --font-size-display-02: 0.75rem;
-  --font-size-heading-01: 2rem;
-  --font-size-heading-02: 1.5rem;
-  --font-size-heading-03: 1.25rem;
-  --font-size-heading-04: 1.125rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Figma source tokens: desktop */
+  --font-size-display-01-desktop: 3.375rem;
+  --font-size-display-02-desktop: 2.625rem;
+  --font-size-heading-01-desktop: 2rem;
+  --font-size-heading-02-desktop: 1.5rem;
+  --font-size-heading-03-desktop: 1.25rem;
+  --font-size-heading-04-desktop: 1.125rem;
+  --font-size-body-01-desktop: 1rem;
+  --font-size-body-02-desktop: 0.875rem;
+  --font-size-label-01-desktop: 1rem;
+  --font-size-label-02-desktop: 0.875rem;
+  --font-size-caption-01-desktop: 0.75rem;
+
+  --line-height-display-01-desktop: 3.5rem;
+  --line-height-display-02-desktop: 3.125rem;
+  --line-height-heading-01-desktop: 2.5rem;
+  --line-height-heading-02-desktop: 2rem;
+  --line-height-heading-03-desktop: 1.75rem;
+  --line-height-heading-04-desktop: 1.625rem;
+  --line-height-body-01-desktop: 1.75rem;
+  --line-height-body-02-desktop: 1.5rem;
+  --line-height-label-01-desktop: 1.5rem;
+  --line-height-label-02-desktop: 1.25rem;
+  --line-height-caption-01-desktop: 1.125rem;
+
+  /* Figma source tokens: mobile */
+  --font-size-display-01-mobile: 2rem;
+  --font-size-display-02-mobile: 1.75rem;
+  --font-size-heading-01-mobile: 1.5rem;
+  --font-size-heading-02-mobile: 1.25rem;
+  --font-size-heading-03-mobile: 1.125rem;
+  --font-size-heading-04-mobile: 1rem;
+  --font-size-body-01-mobile: 0.875rem;
+  --font-size-body-02-mobile: 0.875rem;
+  --font-size-label-01-mobile: 1rem;
+  --font-size-label-02-mobile: 0.875rem;
+  --font-size-caption-01-mobile: 0.75rem;
+
+  --line-height-display-01-mobile: 2.5rem;
+  --line-height-display-02-mobile: 2.25rem;
+  --line-height-heading-01-mobile: 2rem;
+  --line-height-heading-02-mobile: 1.75rem;
+  --line-height-heading-03-mobile: 1.625rem;
+  --line-height-heading-04-mobile: 1.5rem;
+  --line-height-body-01-mobile: 1.625rem;
+  --line-height-body-02-mobile: 1.5rem;
+  --line-height-label-01-mobile: 1.5rem;
+  --line-height-label-02-mobile: 1.25rem;
+  --line-height-caption-01-mobile: 1.125rem;
+
+  /* Semantic tokens aligned with Figma typography */
+  --font-size-display-01: var(--font-size-display-01-desktop);
+  --font-size-display-02: var(--font-size-display-02-desktop);
+  --font-size-heading-01: var(--font-size-heading-01-desktop);
+  --font-size-heading-02: var(--font-size-heading-02-desktop);
+  --font-size-heading-03: var(--font-size-heading-03-desktop);
+  --font-size-heading-04: var(--font-size-heading-04-desktop);
+  --font-size-body-01: var(--font-size-body-01-desktop);
+  --font-size-body-02: var(--font-size-body-02-desktop);
+  --font-size-label-01: var(--font-size-label-01-desktop);
+  --font-size-label-02: var(--font-size-label-02-desktop);
+  --font-size-caption-01: var(--font-size-caption-01-desktop);
+
+  --line-height-display-01: var(--line-height-display-01-desktop);
+  --line-height-display-02: var(--line-height-display-02-desktop);
+  --line-height-heading-01: var(--line-height-heading-01-desktop);
+  --line-height-heading-02: var(--line-height-heading-02-desktop);
+  --line-height-heading-03: var(--line-height-heading-03-desktop);
+  --line-height-heading-04: var(--line-height-heading-04-desktop);
+  --line-height-body-01: var(--line-height-body-01-desktop);
+  --line-height-body-02: var(--line-height-body-02-desktop);
+  --line-height-label-01: var(--line-height-label-01-desktop);
+  --line-height-label-02: var(--line-height-label-02-desktop);
+  --line-height-caption-01: var(--line-height-caption-01-desktop);
+
+  /* Project-specific semantic tokens not present in the Figma export */
   --font-size-heading-05: 1.75rem;
   --font-size-heading-fluid-01: clamp(2.125rem, 4vw, 2.625rem);
-  --font-size-body-01: 1rem;
-  --font-size-body-02: 0.875rem;
-  --font-size-body-03: 1rem;
-  --font-size-caption-01: 0.75rem;
-  --font-size-label-01: 1rem;
-  --font-size-label-02: 0.875rem;
+  --font-size-page-title: 2.25rem;
+  --line-height-page-title: 3.125rem;
+  --font-size-quote-01: 2.25rem;
+  --line-height-quote-01: 2.75rem;
+  --line-height-lead: 1.875rem;
+  --line-height-caption-tight: 1rem;
+  --font-size-body-03: var(--font-size-body-01);
   --font-size-body: var(--font-size-body-01);
   --font-size-lead: 1.125rem;
-  --font-size-title: clamp(2.4rem, 5vw, 4.5rem);
-  --font-size-hero: clamp(3.2rem, 8vw, 6.6rem);
+  --font-size-title: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-hero: clamp(3.25rem, 8vw, 6.625rem);
 
-  --line-height-display-01: 14px;
-  --line-height-display-02: 24px;
-  --line-height-heading-01: 40px;
-  --line-height-heading-02: 32px;
-  --line-height-heading-03: 28px;
-  --line-height-heading-04: 26px;
-  --line-height-heading-05: 36px;
-  --line-height-body-01: 28px;
-  --line-height-body-02: 24px;
-  --line-height-body-03: 24px;
-  --line-height-caption-01: 18px;
-  --line-height-label-01: 24px;
-  --line-height-label-02: 20px;
+  --line-height-heading-05: 2.25rem;
+  --line-height-body-03: var(--line-height-body-01);
   --line-height-body: var(--line-height-body-01);
   --line-height-tight: 1.2;
 
@@ -51,4 +116,24 @@
   --letter-spacing-label-01: -0.08px;
   --letter-spacing-label-02: -0.07px;
   --letter-spacing-eyebrow: 0.18em;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --font-size-display-01: var(--font-size-display-01-mobile);
+    --font-size-display-02: var(--font-size-display-02-mobile);
+    --line-height-display-01: var(--line-height-display-01-mobile);
+    --line-height-display-02: var(--line-height-display-02-mobile);
+    --font-size-heading-05: 1.5rem;
+    --font-size-page-title: 1.75rem;
+    --line-height-page-title: 2.25rem;
+    --font-size-quote-01: 1.75rem;
+    --line-height-quote-01: 2.25rem;
+    --line-height-lead: 1.625rem;
+    --line-height-caption-tight: 1rem;
+    --line-height-heading-05: 2rem;
+    --font-size-lead: 1rem;
+    --font-size-title: clamp(2rem, 8vw, 3rem);
+    --font-size-hero: clamp(2.5rem, 12vw, 4.5rem);
+  }
 }

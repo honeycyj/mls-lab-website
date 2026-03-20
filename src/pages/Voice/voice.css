@@ -53,8 +53,8 @@
 }
 
 .voice-page__featured-copy h2 {
-  font-size: 36px;
-  line-height: 50px;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
 }
 
 .voice-page__featured-copy p {
@@ -122,8 +122,8 @@
 
 .voice-page__archive-title {
   text-align: center;
-  font-size: 36px;
-  line-height: 50px;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
 }
 
 .voice-page__archive-grid {
@@ -163,8 +163,8 @@
 }
 
 .voice-page__archive-copy h3 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: var(--font-size-heading-02);
+  line-height: var(--line-height-heading-02);
 }
 
 .voice-page__archive-copy .voice-page__issue-actions {
@@ -210,7 +210,7 @@
 
   .voice-page__featured-copy h2,
   .voice-page__archive-title {
-    font-size: 32px;
+    font-size: var(--font-size-heading-01);
     line-height: 1.3;
   }
 
@@ -240,12 +240,12 @@
 
   .voice-page__featured-copy h2,
   .voice-page__archive-title {
-    font-size: 28px;
+    line-height: 1.3;
   }
 
   .voice-page__featured-copy p {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: var(--font-size-label-01);
+    line-height: var(--line-height-heading-04);
   }
 
   .voice-page__featured-copy {
