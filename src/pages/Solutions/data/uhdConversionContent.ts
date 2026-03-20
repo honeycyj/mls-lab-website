@@ -1,3 +1,5 @@
+import type { SolutionTestimonialData } from "../../../components/foundation/SolutionTestimonial/SolutionTestimonial";
+
 export type SolutionNavItem = {
   href: string;
   label: string;
@@ -12,17 +14,6 @@ export type SolutionAction = {
   href: string;
   label: string;
   variant?: "primary" | "secondary";
-};
-
-export type SolutionTestimonial = {
-  activeDot?: number;
-  author: string;
-  backgroundColor?: string;
-  dotCount?: number;
-  image: string;
-  imageAlt?: string;
-  quote: string;
-  role: string;
 };
 
 export const uhdConversionPageContent = {
@@ -89,7 +80,7 @@ export const uhdConversionPageContent = {
     height: 448,
     imageWidth: 480,
     imagePosition: "center top",
-  } satisfies SolutionTestimonial,
+  } satisfies SolutionTestimonialData,
   openApiActions: [
     { label: "下载文档", href: "#", variant: "secondary" },
     { label: "申请接入", href: "#", variant: "primary" },
