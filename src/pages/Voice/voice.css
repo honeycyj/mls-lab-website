@@ -76,44 +76,7 @@
 
 .voice-page__action {
   min-width: 160px;
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  border: 1px solid #08082e;
-  border-radius: 2px;
   font-family: var(--font-family-display);
-  font-size: var(--font-size-label-01);
-  line-height: var(--line-height-label-01);
-  letter-spacing: var(--letter-spacing-label-01);
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
-}
-
-.voice-page__action--primary {
-  background: #08082e;
-  color: #ffffff;
-}
-
-.voice-page__action--primary:hover,
-.voice-page__action--primary:focus-visible {
-  background: #14144b;
-  border-color: #14144b;
-  outline: none;
-}
-
-.voice-page__action--secondary {
-  background: #ffffff;
-  color: #262a33;
-}
-
-.voice-page__action--secondary:hover,
-.voice-page__action--secondary:focus-visible {
-  background: rgba(8, 8, 46, 0.04);
-  outline: none;
 }
 
 .voice-page__archive {

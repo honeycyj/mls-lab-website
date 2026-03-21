@@ -1,38 +1,13 @@
-import { useState } from "react";
+import { Button } from "../../components/foundation/Button/Button";
 import { CapabilityShowcaseSection } from "../../components/sections/Capabilities/CapabilityShowcaseSection";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { testingServicesPageContent } from "./data/testingServicesContent";
 
-function CloseIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
-      <path d="M4 4L12 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-      <path d="M12 4L4 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export function TestingServicesPage() {
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
-
   return (
     <div className="testing-page">
-      {showAnnouncement ? (
-        <PageIntro className="solution-template__announcement">
-          <div className="solution-template__announcement-inner">
-            <div className="solution-template__announcement-copy">
-              <p>{testingServicesPageContent.announcement}</p>
-              <a href="#testing-contact">立刻了解</a>
-            </div>
-            <button type="button" aria-label="关闭公告" onClick={() => setShowAnnouncement(false)}>
-              <CloseIcon />
-            </button>
-          </div>
-        </PageIntro>
-      ) : null}
-
       <SiteHeader />
 
       <main className="testing-page__main" id="top">
@@ -42,9 +17,9 @@ export function TestingServicesPage() {
             <PageIntro className="testing-hero__copy" delay={0.08}>
               <h1>{testingServicesPageContent.hero.title}</h1>
               <p>{testingServicesPageContent.hero.description}</p>
-              <a className="testing-hero__button" href="#testing-contact">
+              <Button className="testing-hero__button" href="#testing-contact" size="lg" variant="accent">
                 {testingServicesPageContent.hero.ctaLabel}
-              </a>
+              </Button>
             </PageIntro>
 
             <PageReveal className="testing-hero__visual" delay={0.18}>
@@ -96,7 +71,9 @@ export function TestingServicesPage() {
               <label className="testing-contact__field">
                 <input type="email" placeholder={testingServicesPageContent.cta.emailPlaceholder} />
               </label>
-              <button type="button">{testingServicesPageContent.cta.buttonLabel}</button>
+              <Button size="lg" type="button" variant="accent">
+                {testingServicesPageContent.cta.buttonLabel}
+              </Button>
               <p>
                 {testingServicesPageContent.cta.privacyPrefix}
                 <a href="#testing-contact">{testingServicesPageContent.cta.privacyLabel}</a>

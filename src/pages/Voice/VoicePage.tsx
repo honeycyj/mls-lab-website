@@ -1,3 +1,4 @@
+import { Button } from "../../components/foundation/Button/Button";
 import { PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { PageSectionIntro } from "../../components/foundation/PageSectionIntro/PageSectionIntro";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
@@ -8,13 +9,15 @@ function VoiceIssueActions({ actions }: { actions: VoiceIssue["actions"] }) {
   return (
     <div className="voice-page__issue-actions">
       {actions.map((action) => (
-        <a
+        <Button
           key={`${action.label}-${action.href}`}
-          className={`voice-page__action voice-page__action--${action.variant ?? "secondary"}`}
+          className="voice-page__action"
           href={action.href}
+          size="lg"
+          variant={action.variant ?? "secondary"}
         >
           {action.label}
-        </a>
+        </Button>
       ))}
     </div>
   );

@@ -1,6 +1,7 @@
 import { MotionConfig } from "motion/react";
 import { Route, Routes } from "react-router";
 import { GlobalCursor } from "./components/foundation/GlobalCursor/GlobalCursor";
+import { SiteAnnouncementBar } from "./components/layout/Announcement/SiteAnnouncementBar";
 import { AboutPage } from "./pages/About/AboutPage";
 import { HomePage } from "./pages/Home/HomePage";
 import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
@@ -13,6 +14,7 @@ function App() {
   return (
     <MotionConfig reducedMotion="user">
       <GlobalCursor />
+      <SiteAnnouncementBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

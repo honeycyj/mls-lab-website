@@ -26,7 +26,6 @@ const testingServiceCards: CapabilityCardData[] = [
 ];
 
 export const testingServicesPageContent = {
-  announcement: "JCASP 2026 互动感知图像编码赛项获奖成果",
   hero: {
     title: "提供音视频领域的测试与认证服务，确保您的产品符合行业标准",
     description:

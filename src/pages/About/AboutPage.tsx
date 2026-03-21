@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState, type WheelEvent } from "react";
+import { Button } from "../../components/foundation/Button/Button";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
@@ -405,7 +406,9 @@ export function AboutPage() {
                   We care about your data in our <a href="#about-contact">privacy policy</a>.
                 </span>
               </label>
-              <button type="submit">Subscribe</button>
+              <Button size="lg" type="submit" variant="accent">
+                Subscribe
+              </Button>
             </form>
           </PageReveal>
         </PageReveal>

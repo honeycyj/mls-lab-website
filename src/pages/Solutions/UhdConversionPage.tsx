@@ -1,60 +1,37 @@
-import { useState } from "react";
+import { Button } from "../../components/foundation/Button/Button";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SolutionSectionNav } from "../../components/foundation/SolutionSectionNav/SolutionSectionNav";
 import { SolutionTestimonial } from "../../components/foundation/SolutionTestimonial/SolutionTestimonial";
 import { useActiveSectionHref } from "../../hooks/useActiveSectionHref";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
-import { announcement } from "../Home/homePageContent";
 import { uhdConversionPageContent, type SolutionAction } from "./data/uhdConversionContent";
-
-function CloseIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
-      <path d="M4 4L12 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-      <path d="M12 4L4 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 function SolutionActions({ actions }: { actions: SolutionAction[] }) {
   return (
     <div className="solution-template__actions">
       {actions.map((action) => (
-        <a
+        <Button
           key={`${action.label}-${action.href}`}
-          className={`solution-template__action solution-template__action--${action.variant ?? "secondary"}`}
+          className="solution-template__action"
           href={action.href}
+          size="lg"
+          variant={action.variant ?? "secondary"}
         >
           {action.label}
-        </a>
+        </Button>
       ))}
     </div>
   );
 }
 
 export function UhdConversionPage() {
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
   const activeSectionHref = useActiveSectionHref(
     uhdConversionPageContent.sectionNav.map((item) => item.href),
   );
 
   return (
     <div className="solution-template">
-      {showAnnouncement ? (
-        <PageIntro className="solution-template__announcement">
-          <div className="solution-template__announcement-inner">
-            <div className="solution-template__announcement-copy">
-              <p>{announcement}</p>
-              <a href="#overview">立刻了解</a>
-            </div>
-            <button type="button" aria-label="关闭公告" onClick={() => setShowAnnouncement(false)}>
-              <CloseIcon />
-            </button>
-          </div>
-        </PageIntro>
-      ) : null}
-
       <SiteHeader />
 
       <main className="solution-template__main">
@@ -141,7 +118,9 @@ export function UhdConversionPage() {
               <label className="solution-template__cta-field">
                 <input type="email" placeholder={uhdConversionPageContent.ctaPlaceholder} />
               </label>
-              <button type="button">{uhdConversionPageContent.ctaButton}</button>
+              <Button size="lg" type="button" variant="accent">
+                {uhdConversionPageContent.ctaButton}
+              </Button>
               <p>
                 {uhdConversionPageContent.ctaPrivacyPrefix}
                 <a href="/#contact">{uhdConversionPageContent.ctaPrivacyLabel}</a>

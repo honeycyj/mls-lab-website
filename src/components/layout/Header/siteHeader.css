@@ -1,5 +1,4 @@
-.site-header__nav a,
-.site-header__login {
+.site-header__nav a {
   font-family: var(--font-family-display);
 }
 
@@ -184,23 +183,7 @@
 
 .site-header__login {
   width: 100px;
-  min-height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-brand-01);
-  color: var(--text-onbrand);
-  border-radius: 2px;
   font-family: var(--font-family-body);
-  font-size: var(--font-size-body-02);
-  line-height: var(--line-height-body-02);
-  letter-spacing: var(--letter-spacing-body-02);
-}
-
-.site-header__login:hover,
-.site-header__login:focus-visible {
-  background: #14144b;
-  outline: none;
 }
 
 .site-header__industry-shell {
@@ -401,6 +384,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
   min-height: 100%;
   padding: 32px 20px;
   background: var(--color-brand-01);

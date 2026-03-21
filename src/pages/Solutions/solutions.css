@@ -4,14 +4,6 @@
   color: var(--text-primary);
 }
 
-.solution-template__announcement {
-  background:
-    linear-gradient(90deg, rgba(8, 8, 46, 0.95), rgba(32, 24, 84, 0.95), rgba(8, 8, 46, 0.95)),
-    url("/assets/home/news-bar-bg.png") center/cover;
-  color: var(--text-onbrand);
-}
-
-.solution-template__announcement-inner,
 .solution-template__intro,
 .solution-template__body,
 .solution-template__cta,
@@ -19,61 +11,6 @@
 .solution-template__testimonial {
   width: min(calc(100% - 48px), var(--solution-max));
   margin: 0 auto;
-}
-
-.solution-template__announcement-inner {
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.solution-template__announcement-copy {
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-heading-04);
-  line-height: var(--line-height-heading-04);
-  letter-spacing: var(--letter-spacing-heading-04);
-}
-
-.solution-template__announcement-copy p {
-  min-width: 0;
-  white-space: nowrap;
-}
-
-.solution-template__announcement-copy a {
-  color: var(--color-brand-03);
-  white-space: nowrap;
-}
-
-.solution-template__announcement-inner button {
-  width: 16px;
-  height: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--color-text-onbrand-78);
-  cursor: pointer;
-}
-
-.solution-template__announcement-inner button:hover,
-.solution-template__announcement-inner button:focus-visible {
-  color: var(--text-onbrand);
-  outline: none;
-}
-
-.solution-template__announcement-inner button svg {
-  width: 16px;
-  height: 16px;
-  display: block;
 }
 
 .solution-template__main {
@@ -234,44 +171,7 @@
 
 .solution-template__action {
   min-width: 160px;
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 14px;
-  border: 1px solid #08082e;
-  border-radius: 2px;
   font-family: var(--font-family-display);
-  font-size: var(--font-size-label-01);
-  line-height: var(--line-height-label-01);
-  letter-spacing: var(--letter-spacing-label-01);
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
-}
-
-.solution-template__action--primary {
-  background: #08082e;
-  color: #ffffff;
-}
-
-.solution-template__action--primary:hover,
-.solution-template__action--primary:focus-visible {
-  background: #14144b;
-  border-color: #14144b;
-  outline: none;
-}
-
-.solution-template__action--secondary {
-  background: #ffffff;
-  color: #262a33;
-}
-
-.solution-template__action--secondary:hover,
-.solution-template__action--secondary:focus-visible {
-  background: rgba(8, 8, 46, 0.04);
-  outline: none;
 }
 
 .solution-template__cta {
@@ -325,25 +225,8 @@
   line-height: var(--line-height-label-01);
 }
 
-.solution-template__cta-form button {
+.solution-template__cta-form .ui-button {
   min-width: 102px;
-  height: 48px;
-  padding: 0 18px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  background: #7743ff;
-  color: #ffffff;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-label-01);
-  line-height: var(--line-height-label-01);
-  font-weight: var(--font-weight-semibold);
-  cursor: pointer;
-}
-
-.solution-template__cta-form button:hover,
-.solution-template__cta-form button:focus-visible {
-  background: #8458ff;
-  outline: none;
 }
 
 .solution-template__cta-form p {
@@ -409,7 +292,6 @@
 }
 
 @media (max-width: 1280px) {
-  .solution-template__announcement-inner,
   .solution-template__intro,
   .solution-template__body,
   .solution-template__cta,
@@ -462,19 +344,9 @@
     padding-bottom: 80px;
   }
 
-  .solution-template__announcement-copy {
-    font-size: var(--font-size-label-02);
-    line-height: var(--line-height-label-02);
-  }
-
-  .solution-template__announcement-copy p {
-    white-space: normal;
-    text-align: center;
-  }
 }
 
 @media (max-width: 640px) {
-  .solution-template__announcement-inner,
   .solution-template__intro,
   .solution-template__body,
   .solution-template__cta,

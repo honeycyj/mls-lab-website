@@ -630,17 +630,8 @@
   text-decoration: underline;
 }
 
-.about-contact__form button {
-  height: 48px;
-  padding: 0 18px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  background: #7743ff;
-  color: var(--text-onbrand);
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-label-01);
-  font-weight: 600;
-  cursor: pointer;
+.about-contact__form .ui-button {
+  min-width: 102px;
 }
 
 @media (max-width: 1280px) {
@@ -703,7 +694,7 @@
     flex-direction: column;
   }
 
-  .about-contact__form button {
+  .about-contact__form .ui-button {
     width: 100%;
   }
 

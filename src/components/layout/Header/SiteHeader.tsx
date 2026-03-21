@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
+import { Button } from "../../foundation/Button/Button";
 import { IndustryMegaMenu } from "./IndustryMegaMenu";
 import { headerNavItems } from "./headerContent";
 import { NavDropdown } from "./NavDropdown";
@@ -229,9 +230,9 @@ export function SiteHeader() {
             <button className="site-header__icon-button" type="button" aria-label="语言">
               <GlobeIcon />
             </button>
-            <a className="site-header__login" href={contactHref}>
+            <Button className="site-header__login" href={contactHref} size="sm" variant="primary">
               登录
-            </a>
+            </Button>
           </div>
         </div>
       </header>

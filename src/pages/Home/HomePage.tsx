@@ -1,43 +1,15 @@
-import { useState } from "react";
+import { Button } from "../../components/foundation/Button/Button";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { HomeCapabilitiesSection } from "./components/HomeCapabilitiesSection";
+import { HomeEnvironmentSection } from "./components/HomeEnvironmentSection";
 import { HomeMediaSection } from "./components/HomeMediaSection";
-import {
-  announcement,
-  awardLogos,
-  environmentImages,
-  solutionTabs,
-} from "./homePageContent";
-function CloseIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
-      <path d="M4 4L12 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-      <path d="M12 4L4 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-    </svg>
-  );
-}
+import { awardLogos, environmentImages, solutionTabs, teamStats } from "./homePageContent";
 
 export function HomePage() {
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
-
   return (
     <div className="homepage">
-      {showAnnouncement ? (
-        <PageIntro className="homepage__announcement">
-          <div className="homepage__announcement-inner">
-            <div className="homepage__announcement-copy">
-              <p>{announcement}</p>
-              <a href="#media">立刻了解</a>
-            </div>
-            <button type="button" aria-label="关闭公告" onClick={() => setShowAnnouncement(false)}>
-              <CloseIcon />
-            </button>
-          </div>
-        </PageIntro>
-      ) : null}
-
       <SiteHeader />
 
       <main id="top">
@@ -52,8 +24,10 @@ export function HomePage() {
             <PageIntro as="p" className="hero__description" delay={0.26}>
               首次参赛的马栏山音视频实验室夺得视频压缩赛道第二名
             </PageIntro>
-            <PageIntro as="a" className="hero__button" href="#media" delay={0.34}>
-              了解更多
+            <PageIntro className="hero__button-wrap" delay={0.34}>
+              <Button className="hero__button" href="#media" size="lg" tone="inverse" variant="primary">
+                了解更多
+              </Button>
             </PageIntro>
           </div>
           <PageIntro className="hero__dots" aria-hidden="true" delay={0.42}>
@@ -119,61 +93,25 @@ export function HomePage() {
         </PageReveal>
 
         <section className="team" id="team">
-          <PageReveal className="team__visual">
-            <img src="/assets/home/team-photo.png" alt="人才团队" />
-            <a href="#contact">
-              <span>人才团队</span>
-              <span>↗</span>
-            </a>
-          </PageReveal>
+          <div className="team__feature">
+            <PageReveal className="team__heading" delay={0.04}>
+              <h2>人才团队</h2>
+            </PageReveal>
+            <PageReveal className="team__visual" delay={0.08}>
+              <img src="/assets/home/team-photo.png" alt="人才团队" />
+            </PageReveal>
+          </div>
           <div className="team__stats">
-            <PageReveal delay={0.04}>
-              <strong>63%</strong>
-              <span>employees with master&apos;s degree</span>
-            </PageReveal>
-            <PageReveal delay={0.1}>
-              <strong>10+</strong>
-              <span>employees</span>
-            </PageReveal>
-            <PageReveal delay={0.16}>
-              <strong>1/2</strong>
-              <span>Non-local staff</span>
-            </PageReveal>
-            <PageReveal delay={0.22}>
-              <strong>50%</strong>
-              <span>Fortune 500 experience</span>
-            </PageReveal>
+            {teamStats.map((stat, index) => (
+              <PageReveal key={stat.label} delay={0.12 + index * 0.06}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </PageReveal>
+            ))}
           </div>
         </section>
 
-        <PageReveal as="section" className="section section--environment">
-          <PageReveal className="section__heading section__heading--wide" delay={0.04}>
-            <h2>实验室环境</h2>
-            <div className="environment__controls" aria-hidden="true">
-              <button type="button">‹</button>
-              <button type="button">›</button>
-            </div>
-          </PageReveal>
-          <div className="environment__gallery">
-            {environmentImages.map((image, index) => (
-              <PageReveal
-                as="img"
-                key={image}
-                src={image}
-                alt={`实验室环境 ${index + 1}`}
-                delay={0.08 + index * 0.08}
-              />
-            ))}
-          </div>
-          <PageReveal className="environment__dots" aria-hidden="true" delay={0.12}>
-            <span className="is-active" />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </PageReveal>
-        </PageReveal>
+        <HomeEnvironmentSection images={environmentImages} />
 
         <section className="awards">
           <PageReveal className="awards__inner">

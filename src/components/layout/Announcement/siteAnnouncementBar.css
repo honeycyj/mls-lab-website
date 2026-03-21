@@ -1,0 +1,108 @@
+.site-announcement {
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(8, 8, 46, 0.95), rgba(32, 24, 84, 0.95), rgba(8, 8, 46, 0.95)),
+    url("/assets/home/news-bar-bg.png") center/cover;
+  color: var(--text-onbrand);
+}
+
+.site-announcement__inner {
+  width: min(calc(100% - 48px), 1200px);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  font-family: var(--font-family-body);
+}
+
+.site-announcement__copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-heading-04);
+  line-height: var(--line-height-heading-04);
+  letter-spacing: var(--letter-spacing-heading-04);
+}
+
+.site-announcement__copy p {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.site-announcement__copy a {
+  flex: none;
+  color: var(--color-brand-03);
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.site-announcement__copy a:hover,
+.site-announcement__copy a:focus-visible {
+  color: var(--text-onbrand);
+  outline: none;
+}
+
+.site-announcement__inner button {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-onbrand-78);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.site-announcement__inner button:hover,
+.site-announcement__inner button:focus-visible {
+  color: var(--text-onbrand);
+  outline: none;
+}
+
+.site-announcement__inner button svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+@media (max-width: 1280px) {
+  .site-announcement__inner {
+    width: min(calc(100% - 32px), 1200px);
+  }
+}
+
+@media (max-width: 900px) {
+  .site-announcement__inner {
+    min-height: auto;
+    padding: 12px 0;
+  }
+
+  .site-announcement__copy {
+    flex-wrap: wrap;
+    font-size: var(--font-size-label-02);
+    line-height: var(--line-height-label-02);
+  }
+
+  .site-announcement__copy p {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-announcement__inner {
+    width: min(calc(100% - 24px), 1200px);
+  }
+}

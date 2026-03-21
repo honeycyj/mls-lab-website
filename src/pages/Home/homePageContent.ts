@@ -24,10 +24,12 @@ type MediaCard = EditableLink & {
   title: string;
 };
 
-const EMPTY_LINK = "";
+type TeamStat = {
+  label: string;
+  value: string;
+};
 
-export const announcement =
-  "ICASSP 2026 马栏山音视频实验室发布声纹识别领域最新创新成果";
+const EMPTY_LINK = "";
 
 export const mediaLead: MediaLead = {
   title: "丁薛祥在湖南调研时强调 以科技创新引领产业创新 打造国家重要先进制造业高地",
@@ -81,10 +83,18 @@ export const mediaCards: MediaCard[] = [
 
 export const solutionTabs = ["短剧行业", "智能ITO", "音视频技术", "星闪"];
 
+export const teamStats: TeamStat[] = [
+  { value: "63%", label: "employees with master's degree" },
+  { value: "10+", label: "employees" },
+  { value: "1/2", label: "Non-local staff" },
+  { value: "50%", label: "Fortune 500 experience" },
+];
+
 export const environmentImages = [
   "/assets/home/environment-1.png",
   "/assets/home/environment-2.png",
   "/assets/home/environment-3.png",
+  "/assets/home/environment-4.png",
 ];
 
 export const awardLogos = [
