@@ -32,7 +32,7 @@ export function NotFoundPage() {
       </main>
 
       <PageReveal delay={0.02}>
-        <SiteFooter anchorHref="/" />
+        <SiteFooter />
       </PageReveal>
     </div>
   );

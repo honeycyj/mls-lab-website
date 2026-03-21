@@ -22,7 +22,7 @@ export const headerNavItems: HeaderNavItem[] = [
   },
   { label: "能力引擎", href: "#capabilities" },
   { label: "产业赋能", href: "#solutions", menuType: "industry" },
-  { label: "测试服务", href: "#media" },
+  { label: "测试服务", href: "testing-services" },
   {
     label: "人才发展",
     menuType: "dropdown",

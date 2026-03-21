@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
-import { CapabilitiesSection } from "../../components/sections/Capabilities/CapabilitiesSection";
+import { HomeCapabilitiesSection } from "./components/HomeCapabilitiesSection";
 import { HomeMediaSection } from "./components/HomeMediaSection";
 import {
   announcement,
@@ -65,7 +65,7 @@ export function HomePage() {
 
         <HomeMediaSection />
 
-        <CapabilitiesSection />
+        <HomeCapabilitiesSection />
 
         <section className="story-band">
           <PageReveal className="story-band__inner">
@@ -205,7 +205,7 @@ export function HomePage() {
       </main>
 
       <PageReveal delay={0.02}>
-        <SiteFooter anchorHref="#contact" />
+        <SiteFooter />
       </PageReveal>
     </div>
   );

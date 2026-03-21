@@ -1,17 +1,8 @@
 import {
-  footerCopyright,
-  footerDescription,
-  footerLinks,
-  footerTitle,
-  legalLinks,
-  socialLinks,
-} from "./footerContent";
+  siteFooterContent,
+} from "../../../content/site/footer";
 
-type SiteFooterProps = {
-  anchorHref: string;
-};
-
-export function SiteFooter({ anchorHref }: SiteFooterProps) {
+export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
@@ -27,8 +18,8 @@ export function SiteFooter({ anchorHref }: SiteFooterProps) {
               src="/assets/footer/logo-mini.svg"
               alt=""
             />
-            <h2>{footerTitle}</h2>
-            <p>{footerDescription}</p>
+            <h2>{siteFooterContent.title}</h2>
+            <p>{siteFooterContent.description}</p>
           </div>
         </div>
 
@@ -36,16 +27,16 @@ export function SiteFooter({ anchorHref }: SiteFooterProps) {
           <div className="site-footer__links">
             <img className="site-footer__mini-logo" src="/assets/footer/logo-mini.svg" alt="" />
             <div>
-              {footerLinks.map((item) => (
-                <a key={item} href={anchorHref}>
-                  {item}
+              {siteFooterContent.primaryLinks.map((item) => (
+                <a key={item.label} href={item.href} rel={item.rel} target={item.target}>
+                  {item.label}
                 </a>
               ))}
             </div>
           </div>
           <div className="site-footer__socials" aria-label="社交平台">
-            {socialLinks.map((item) => (
-              <a key={item.alt} href={anchorHref} aria-label={item.alt}>
+            {siteFooterContent.socialLinks.map((item) => (
+              <a key={item.alt} href={item.href} aria-label={item.alt} rel={item.rel} target={item.target}>
                 <img src={item.src} alt="" />
               </a>
             ))}
@@ -54,13 +45,13 @@ export function SiteFooter({ anchorHref }: SiteFooterProps) {
 
         <div className="site-footer__legal">
           <div>
-            {legalLinks.map((item) => (
-              <a key={item} href={anchorHref}>
-                {item}
+            {siteFooterContent.legalLinks.map((item) => (
+              <a key={item.label} href={item.href} rel={item.rel} target={item.target}>
+                {item.label}
               </a>
             ))}
           </div>
-          <p>{footerCopyright}</p>
+          <p>{siteFooterContent.copyright}</p>
         </div>
       </div>
     </footer>

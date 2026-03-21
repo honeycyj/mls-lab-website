@@ -169,7 +169,7 @@ export function UhdConversionPage() {
         </section>
       </main>
 
-      <SiteFooter anchorHref="/#contact" />
+      <SiteFooter />
     </div>
   );
 }

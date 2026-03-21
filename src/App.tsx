@@ -6,6 +6,7 @@ import { HomePage } from "./pages/Home/HomePage";
 import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
 import { UhdConversionPage } from "./pages/Solutions/UhdConversionPage";
 import { TeamPage } from "./pages/Team/TeamPage";
+import { TestingServicesPage } from "./pages/Testing/TestingServicesPage";
 import { VoicePage } from "./pages/Voice/VoicePage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/solutions/uhd-conversion" element={<UhdConversionPage />} />
+        <Route path="/testing-services" element={<TestingServicesPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/voices" element={<VoicePage />} />
         <Route path="*" element={<NotFoundPage />} />

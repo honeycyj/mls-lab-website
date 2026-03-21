@@ -76,7 +76,7 @@ export function VoicePage() {
         </section>
       </main>
 
-      <SiteFooter anchorHref="/#contact" />
+      <SiteFooter />
     </div>
   );
 }

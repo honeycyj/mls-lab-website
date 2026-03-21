@@ -412,7 +412,7 @@ export function AboutPage() {
       </main>
 
       <PageReveal delay={0.02}>
-        <SiteFooter anchorHref="#about-contact" />
+        <SiteFooter />
       </PageReveal>
     </div>
   );

@@ -68,7 +68,7 @@ export function TeamPage() {
         </section>
       </main>
 
-      <SiteFooter anchorHref="/#contact" />
+      <SiteFooter />
     </div>
   );
 }

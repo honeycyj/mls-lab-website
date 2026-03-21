@@ -464,21 +464,16 @@
 
 .capability-card {
   min-height: 308px;
-  background: var(--panel);
+  background: var(--interactive-card-surface, var(--panel, var(--color-gray-surface)));
   overflow: hidden;
   cursor: pointer;
   position: relative;
 }
 
-.capability-card--featured {
-  background: var(--panel);
-  color: inherit;
-}
-
 .capability-card__overlay {
   position: absolute;
   inset: 0;
-  background: var(--brand-purple);
+  background: var(--interactive-card-hover-surface, var(--brand-purple, var(--color-brand-01)));
   z-index: 0;
 }
 
@@ -512,18 +507,13 @@
   justify-content: center;
   border-radius: 50%;
   background: #bec3cb;
-  color: var(--muted);
+  color: var(--interactive-card-icon-color, var(--muted, var(--text-default)));
   line-height: 0;
   will-change: transform;
 }
 
 .capability-card__icon svg {
   display: block;
-}
-
-.capability-card--featured .capability-card__icon {
-  background: #bec3cb;
-  color: var(--muted);
 }
 
 .capability-card__footer a {

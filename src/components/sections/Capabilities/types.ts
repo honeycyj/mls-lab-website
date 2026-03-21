@@ -1,3 +1,5 @@
+import type { InteractiveFeatureCardProps, InteractiveFeatureCardVariant } from "../../foundation/InteractiveFeatureCard/InteractiveFeatureCard";
+
 export const capabilityEaseOut = [0, 0.62, 0.5, 1] as const;
 
 export type CapabilityRevealConfig = {
@@ -15,14 +17,27 @@ export type CapabilityCardComponentProps = {
   onHoverEnd: () => void;
 };
 
-export type CapabilityCardData = {
-  id: string;
-  variant?: "default" | "explore-more";
+type CapabilityInteractiveCardData = {
+  kind?: "interactive";
+  cardVariant?: InteractiveFeatureCardVariant;
   title: string;
   description?: string;
-  featured?: boolean;
-  linkHref?: string;
-  linkLabel?: string;
+  linkHref: string;
+  linkRel?: InteractiveFeatureCardProps["linkRel"];
+  linkTarget?: InteractiveFeatureCardProps["linkTarget"];
+  surfaceColor?: InteractiveFeatureCardProps["surfaceColor"];
+  hoverSurfaceColor?: InteractiveFeatureCardProps["hoverSurfaceColor"];
+  textColor?: InteractiveFeatureCardProps["textColor"];
+  hoverTextColor?: InteractiveFeatureCardProps["hoverTextColor"];
+  iconBackgroundColor?: InteractiveFeatureCardProps["iconBackgroundColor"];
+  hoverIconBackgroundColor?: InteractiveFeatureCardProps["hoverIconBackgroundColor"];
+  iconColor?: InteractiveFeatureCardProps["iconColor"];
+  hoverIconColor?: InteractiveFeatureCardProps["hoverIconColor"];
 };
 
-export type CapabilityCardProps = CapabilityCardComponentProps & CapabilityCardData;
+type CapabilityExploreMoreCardData = {
+  kind: "explore-more";
+  title: string;
+};
+
+export type CapabilityCardData = CapabilityInteractiveCardData | CapabilityExploreMoreCardData;
