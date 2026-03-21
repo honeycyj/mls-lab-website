@@ -4,6 +4,7 @@
 @import "./base.css";
 @import "../components/foundation/Button/button.css";
 @import "../components/foundation/PageSectionIntro/pageSectionIntro.css";
+@import "../components/foundation/PartnerLogoStrip/partnerLogoStrip.css";
 @import "../components/foundation/SolutionSectionNav/solutionSectionNav.css";
 @import "../components/foundation/SolutionTestimonial/solutionTestimonial.css";
 @import "../components/layout/Announcement/siteAnnouncementBar.css";

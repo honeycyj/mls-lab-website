@@ -1,5 +1,6 @@
 import { Button } from "../../components/foundation/Button/Button";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
+import { PartnerLogoStrip } from "../../components/foundation/PartnerLogoStrip/PartnerLogoStrip";
 import { SolutionSectionNav } from "../../components/foundation/SolutionSectionNav/SolutionSectionNav";
 import { SolutionTestimonial } from "../../components/foundation/SolutionTestimonial/SolutionTestimonial";
 import { useActiveSectionHref } from "../../hooks/useActiveSectionHref";
@@ -131,13 +132,8 @@ export function UhdConversionPage() {
         </section>
 
         <section className="solution-template__proof">
-          <PageReveal className="solution-template__proof-inner" delay={0.08}>
-            <p>{uhdConversionPageContent.companyProofLabel}</p>
-            <div className="solution-template__proof-logos">
-              {uhdConversionPageContent.companyNames.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
+          <PageReveal delay={0.08}>
+            <PartnerLogoStrip />
           </PageReveal>
         </section>
 

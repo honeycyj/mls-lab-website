@@ -1,0 +1,5 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 8L31.5 14.5V27.5L20 34L8.5 27.5V14.5L20 8Z" fill="#5265F6"/>
+  <path d="M20 14.6L25.5 17.8V24.2L20 27.4L14.5 24.2V17.8L20 14.6Z" fill="white" fill-opacity="0.96"/>
+  <text x="44" y="30" fill="#111111" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="600">GlobalBank</text>
+</svg>

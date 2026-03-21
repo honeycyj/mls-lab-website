@@ -66,8 +66,6 @@ export const uhdConversionPageContent = {
   ctaPrivacySuffix: ".",
   ctaPlaceholder: "Enter your email",
   ctaButton: "Subscribe",
-  companyProofLabel: "Join 4,000+ companies already growing",
-  companyNames: ["Boltshift", "Lightbox", "FeatherDev", "Spherule", "GlobalBank", "Nietzsche"],
   testimonial: {
     quote: "马栏山音视频实验室对双 Vivid 技术的国产化应用有非常突出的贡献",
     author: "姜文波",

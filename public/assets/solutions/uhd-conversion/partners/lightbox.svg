@@ -1,0 +1,6 @@
+<svg width="153" height="48" viewBox="0 0 153 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 8L30 14.5V27.5L19 34L8 27.5V14.5L19 8Z" stroke="#101010" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M19 8V21.2L30 27.5" stroke="#101010" stroke-width="3"/>
+  <path d="M19 21.2L8 27.5" stroke="#101010" stroke-width="3"/>
+  <text x="44" y="30" fill="#111111" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="600">Lightbox</text>
+</svg>
