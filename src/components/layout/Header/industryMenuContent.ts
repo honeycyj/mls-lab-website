@@ -18,36 +18,36 @@ export const industryMenuGroups: IndustryMenuGroup[] = [
     title: "视频技术",
     items: [
       { label: "超高清转制解决方案", href: "/solutions/uhd-conversion" },
-      { label: "制作域转码解决方案" },
-      { label: "CR 图像识别解决方案" },
+      { label: "制作域转码解决方案", href: "/solutions/uhd-conversion" },
+      { label: "CR 图像识别解决方案", href: "/solutions/uhd-conversion" },
     ],
   },
   {
     title: "视频技术",
     items: [
       { label: "超高清转制解决方案", href: "/solutions/uhd-conversion" },
-      { label: "制作域转码解决方案" },
-      { label: "CR 图像识别解决方案" },
+      { label: "制作域转码解决方案", href: "/solutions/uhd-conversion" },
+      { label: "CR 图像识别解决方案", href: "/solutions/uhd-conversion" },
     ],
   },
   {
     title: "AI 应用",
     items: [
       { label: "AI 视频翻译工具", href: "https://mlsvnex.cn/" },
-      { label: "AI 动漫/影视制作流工具" },
-      { label: "AI陪伴智能交互" },
-      { label: "4DGS体积视频制播全链路" },
+      { label: "AI 动漫/影视制作流工具", href: "/solutions/uhd-conversion" },
+      { label: "AI陪伴智能交互", href: "/solutions/uhd-conversion" },
+      { label: "4DGS体积视频制播全链路", href: "/solutions/uhd-conversion" },
     ],
   },
   {
     title: "智能语音 IOT",
-    items: [{ label: "语音交互机器人解决方案" }],
+    items: [{ label: "语音交互机器人解决方案", href: "/solutions/uhd-conversion" }],
   },
   {
     title: "星闪与GPMI",
     items: [
-      { label: "GPMI微型插入式机顶盒" },
-      { label: "GPMI信号转换方案" },
+      { label: "GPMI微型插入式机顶盒", href: "/solutions/uhd-conversion" },
+      { label: "GPMI信号转换方案", href: "/solutions/uhd-conversion" },
     ],
   },
 ];
