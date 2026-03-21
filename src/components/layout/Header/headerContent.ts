@@ -34,7 +34,6 @@ export const headerNavItems: HeaderNavItem[] = [
       { label: "党建活动" },
     ],
   },
-  { label: "新闻动态", href: "#media" },
   {
     label: "实验室资源",
     menuType: "dropdown",
