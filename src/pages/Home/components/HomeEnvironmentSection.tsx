@@ -25,6 +25,7 @@ export function HomeEnvironmentSection({ images }: HomeEnvironmentSectionProps) 
   const loopWidthRef = useRef(0);
   const cardOffsetsRef = useRef<number[]>([]);
   const transitionRef = useRef<ReturnType<typeof animate> | null>(null);
+  const measureFrameRef = useRef<number | null>(null);
   const latestIndexRef = useRef(0);
   const trackX = useMotionValue(0);
 
@@ -35,6 +36,13 @@ export function HomeEnvironmentSection({ images }: HomeEnvironmentSectionProps) 
   const stopTransition = () => {
     transitionRef.current?.stop();
     transitionRef.current = null;
+  };
+
+  const cancelScheduledMeasure = () => {
+    if (measureFrameRef.current !== null) {
+      window.cancelAnimationFrame(measureFrameRef.current);
+      measureFrameRef.current = null;
+    }
   };
 
   const normalizeIndex = (index: number) => {
@@ -155,6 +163,15 @@ export function HomeEnvironmentSection({ images }: HomeEnvironmentSectionProps) 
     alignTrack(latestIndexRef.current);
   };
 
+  const scheduleMeasure = () => {
+    cancelScheduledMeasure();
+
+    measureFrameRef.current = window.requestAnimationFrame(() => {
+      measureFrameRef.current = null;
+      measureTrack();
+    });
+  };
+
   const animateToIndex = (index: number) => {
     const loopWidth = loopWidthRef.current;
     const offsets = cardOffsetsRef.current;
@@ -197,21 +214,63 @@ export function HomeEnvironmentSection({ images }: HomeEnvironmentSectionProps) 
   };
 
   useEffect(() => {
-    measureTrack();
+    scheduleMeasure();
 
     return () => {
+      cancelScheduledMeasure();
       stopTransition();
     };
   }, []);
 
   useEffect(() => {
+    const gallery = galleryRef.current;
+
+    if (!gallery) {
+      return;
+    }
+
     const handleResize = () => {
-      measureTrack();
+      scheduleMeasure();
     };
 
+    const galleryImages = Array.from(gallery.querySelectorAll<HTMLImageElement>("img"));
+    const removeImageListeners: Array<() => void> = [];
+
+    galleryImages.forEach((image) => {
+      if (image.complete) {
+        return;
+      }
+
+      const handleLoad = () => {
+        scheduleMeasure();
+      };
+
+      image.addEventListener("load", handleLoad);
+      image.addEventListener("error", handleLoad);
+      removeImageListeners.push(() => {
+        image.removeEventListener("load", handleLoad);
+        image.removeEventListener("error", handleLoad);
+      });
+
+      if (typeof image.decode === "function") {
+        void image.decode().then(scheduleMeasure).catch(() => {});
+      }
+    });
+
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => {
+            scheduleMeasure();
+          })
+        : null;
+
+    resizeObserver?.observe(gallery);
     window.addEventListener("resize", handleResize);
+    scheduleMeasure();
 
     return () => {
+      resizeObserver?.disconnect();
+      removeImageListeners.forEach((removeListener) => removeListener());
       window.removeEventListener("resize", handleResize);
     };
   }, []);
