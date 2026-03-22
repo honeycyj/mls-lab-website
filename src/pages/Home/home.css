@@ -610,69 +610,74 @@
   margin: 0 auto;
   padding: 32px 0 8px;
   display: grid;
-  grid-template-columns: minmax(0, 950fr) minmax(0, 945fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 8px;
 }
 
 .team__feature {
-  min-height: 701px;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 8px;
-}
-
-.team__heading {
-  min-height: 168px;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 24px;
-  background: #ededed;
-}
-
-.team__heading h2 {
-  font-size: var(--font-size-heading-fluid-01);
-  line-height: 1.2;
-  text-align: center;
-}
-
-.team__visual {
   position: relative;
   overflow: hidden;
-  min-height: 0;
-  background: #ededed;
+  background: #a36fe8 url("/assets/home/cardbg.png") center/cover no-repeat;
+  color: var(--color-text-primary-85);
+  text-decoration: none;
 }
 
-.team__visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.team__feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
+  pointer-events: none;
+}
+
+.team__feature-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-02);
+  line-height: var(--line-height-display-02);
+  font-weight: 400;
+  color: inherit;
+}
+
+.team__feature-label span:last-child {
+  font-family: var(--font-family-body);
+  transform: translateY(1px);
 }
 
 .team__stats {
   background: var(--ink-dark);
   color: var(--brand-lilac);
+  aspect-ratio: 1 / 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
+  grid-template-columns: repeat(2, minmax(0, 271px));
+  place-content: center;
+  justify-content: center;
+  gap: 40px;
   padding: 80px 85px;
-  min-height: 701px;
 }
 
-.team__stats div {
+.team__stat {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   text-align: center;
 }
 
-.team__stats strong {
+.team__stat-value {
   font-size: 64px;
   line-height: 76.8px;
   font-weight: 500;
 }
 
-.team__stats span {
+.team__stat-label {
   font-size: 16px;
   line-height: 20.304px;
 }
@@ -921,9 +926,8 @@
     min-height: 0;
   }
 
-  .team__heading {
+  .team__feature {
     min-height: 0;
-    padding: 40px 24px;
   }
 
   .team__stats {
@@ -964,8 +968,18 @@
     grid-template-columns: 1fr;
   }
 
+  .team__feature {
+    min-height: 0;
+  }
+
+  .team__feature-label {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
   .team__stats {
     min-height: auto;
+    gap: 32px;
   }
 
   .environment__controls {

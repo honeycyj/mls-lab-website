@@ -1,4 +1,5 @@
 import { Button } from "../../components/foundation/Button/Button";
+import { CountUpStat } from "../../components/foundation/CountUpStat/CountUpStat";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
@@ -93,19 +94,22 @@ export function HomePage() {
         </PageReveal>
 
         <section className="team" id="team">
-          <div className="team__feature">
-            <PageReveal className="team__heading" delay={0.04}>
-              <h2>人才团队</h2>
-            </PageReveal>
-            <PageReveal className="team__visual" delay={0.08}>
-              <img src="/assets/home/team-photo.png" alt="人才团队" />
-            </PageReveal>
-          </div>
+          <PageReveal as="a" className="team__feature" href="/team" aria-label="查看人才团队" delay={0.04}>
+            <span className="team__feature-label" aria-hidden="true">
+              <span>人才团队</span>
+              <span>→</span>
+            </span>
+          </PageReveal>
           <div className="team__stats">
             {teamStats.map((stat, index) => (
               <PageReveal key={stat.label} delay={0.12 + index * 0.06}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
+                <CountUpStat
+                  className="team__stat"
+                  label={stat.label}
+                  labelClassName="team__stat-label"
+                  value={stat.value}
+                  valueClassName="team__stat-value"
+                />
               </PageReveal>
             ))}
           </div>
