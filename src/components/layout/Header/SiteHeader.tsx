@@ -5,6 +5,7 @@ import { Button } from "../../foundation/Button/Button";
 import "./siteHeader.css";
 import { IndustryMegaMenu } from "./IndustryMegaMenu";
 import { headerNavItems } from "./headerContent";
+import { MobileNavDrawer } from "./MobileNavDrawer";
 import { NavDropdown } from "./NavDropdown";
 
 const HEADER_INITIAL_OFFSET = -18;
@@ -14,6 +15,8 @@ const HEADER_HIDE_START_SCROLL = 120;
 const HEADER_TOP_RESET_SCROLL = 8;
 const INDUSTRY_MENU_CLOSE_DELAY = 90;
 const MIN_SCROLL_DELTA = 0.5;
+const MOBILE_NAV_MEDIA_QUERY = "(max-width: 900px)";
+const MOBILE_NAV_DRAWER_ID = "site-header-mobile-drawer";
 
 function SearchIcon() {
   return (
@@ -45,6 +48,16 @@ function GlobeIcon() {
   );
 }
 
+function MenuToggleIcon({ isOpen }: { isOpen: boolean }) {
+  return (
+    <span className={`site-header__mobile-toggle-box${isOpen ? " is-open" : ""}`} aria-hidden="true">
+      <span className="site-header__mobile-toggle-line" />
+      <span className="site-header__mobile-toggle-line" />
+      <span className="site-header__mobile-toggle-line" />
+    </span>
+  );
+}
+
 export function SiteHeader() {
   const reduceMotion = useReducedMotion() ?? false;
   const location = useLocation();
@@ -55,15 +68,22 @@ export function SiteHeader() {
   const [headerOffsetY, setHeaderOffsetY] = useState(0);
   const [isRevealing, setIsRevealing] = useState(false);
   const [isIndustryMenuOpen, setIsIndustryMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerShellRef = useRef<HTMLDivElement | null>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement | null>(null);
   const overlayLayerRef = useRef<HTMLDivElement | null>(null);
   const previousScrollY = useRef(0);
   const accumulatedScroll = useRef(0);
   const industryMenuCloseTimeoutRef = useRef<number | null>(null);
+  const wasMobileMenuOpenRef = useRef(false);
 
   const resolveHeaderHref = (href?: string) => {
     if (!href) {
       return undefined;
+    }
+
+    if (/^https?:\/\//.test(href) || href.startsWith("/")) {
+      return href;
     }
 
     return isHome ? href : `/${href}`;
@@ -159,17 +179,84 @@ export function SiteHeader() {
     };
   }, []);
 
+  useEffect(() => {
+    setIsIndustryMenuOpen(false);
+    setIsMobileMenuOpen(false);
+  }, [location.key]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    setIsIndustryMenuOpen(false);
+
+    const mediaQuery = window.matchMedia(MOBILE_NAV_MEDIA_QUERY);
+    const handleBreakpointChange = (event: MediaQueryListEvent) => {
+      if (!event.matches) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleBreakpointChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleBreakpointChange);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (wasMobileMenuOpenRef.current && !isMobileMenuOpen) {
+      mobileToggleRef.current?.focus();
+    }
+
+    wasMobileMenuOpenRef.current = isMobileMenuOpen;
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const { body } = document;
+    const previousOverflow = body.style.overflow;
+
+    body.style.overflow = "hidden";
+
+    return () => {
+      body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <motion.div
       ref={headerShellRef}
-      className="site-header-shell"
+      className={`site-header-shell${isMobileMenuOpen ? " is-mobile-menu-open" : ""}`}
       initial={{
         opacity: 0,
         y: reduceMotion ? 0 : HEADER_INITIAL_OFFSET,
       }}
       animate={{
         opacity: 1,
-        y: -headerOffsetY,
+        y: isMobileMenuOpen ? 0 : -headerOffsetY,
       }}
       transition={{
         opacity: {
@@ -235,9 +322,38 @@ export function SiteHeader() {
               登录
             </Button>
           </div>
+          <button
+            ref={mobileToggleRef}
+            className="site-header__mobile-toggle"
+            type="button"
+            aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
+            aria-controls={MOBILE_NAV_DRAWER_ID}
+            aria-expanded={isMobileMenuOpen}
+            aria-haspopup="dialog"
+            onClick={() => {
+              setIsMobileMenuOpen((current) => !current);
+            }}
+          >
+            <MenuToggleIcon isOpen={isMobileMenuOpen} />
+          </button>
         </div>
       </header>
       <div ref={overlayLayerRef} className="site-header__overlay-layer">
+        <AnimatePresence>
+          {isMobileMenuOpen ? (
+            <MobileNavDrawer
+              contactHref={contactHref}
+              drawerId={MOBILE_NAV_DRAWER_ID}
+              isOpen={isMobileMenuOpen}
+              navItems={headerNavItems}
+              onClose={() => {
+                setIsMobileMenuOpen(false);
+              }}
+              resolveHeaderHref={resolveHeaderHref}
+              solutionsHref={solutionsHref}
+            />
+          ) : null}
+        </AnimatePresence>
         <AnimatePresence>
           {isIndustryMenuOpen ? (
             <motion.div
