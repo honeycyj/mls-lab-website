@@ -84,10 +84,10 @@ export const mediaCards: MediaCard[] = [
 export const solutionTabs = ["短剧行业", "智能ITO", "音视频技术", "星闪"];
 
 export const teamStats: TeamStat[] = [
-  { value: "63%", label: "employees with master's degree" },
-  { value: "10+", label: "employees" },
-  { value: "1/2", label: "Non-local staff" },
-  { value: "50%", label: "Fortune 500 experience" },
+  { value: "80%", label: "硕博员工占比" },
+  { value: "2/3", label: "非本地员工" },
+  { value: "70%", label: "来自世界 500 强企业" },
+  { value: "100+", label: "实验室成员" },
 ];
 
 export const environmentImages = [
