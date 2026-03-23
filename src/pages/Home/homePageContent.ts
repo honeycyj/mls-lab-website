@@ -1,3 +1,5 @@
+import { FEATURED_NEWS_ARTICLE_SLUG, getNewsArticleHref } from "../News/data/newsArticles";
+
 type EditableLink = {
   href: string;
 };
@@ -30,6 +32,7 @@ type TeamStat = {
 };
 
 const EMPTY_LINK = "";
+const FEATURED_NEWS_ARTICLE_HREF = getNewsArticleHref(FEATURED_NEWS_ARTICLE_SLUG);
 
 export const mediaLead: MediaLead = {
   title: "丁薛祥在湖南调研时强调 以科技创新引领产业创新 打造国家重要先进制造业高地",
@@ -59,7 +62,7 @@ export const mediaCards: MediaCard[] = [
     image: "/assets/home/media-card-1.png",
     date: "2026年1月22日",
     cta: "深入了解",
-    href: EMPTY_LINK,
+    href: FEATURED_NEWS_ARTICLE_HREF,
   },
   {
     title: "研究：智能音频技术在智能家居中的应用与发展",

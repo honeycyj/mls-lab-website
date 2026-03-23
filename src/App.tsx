@@ -4,6 +4,7 @@ import { GlobalCursor } from "./components/foundation/GlobalCursor/GlobalCursor"
 import { SiteAnnouncementBar } from "./components/layout/Announcement/SiteAnnouncementBar";
 import { AboutPage } from "./pages/About/AboutPage";
 import { HomePage } from "./pages/Home/HomePage";
+import { NewsArticlePage } from "./pages/News/NewsArticlePage";
 import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
 import { UhdConversionPage } from "./pages/Solutions/UhdConversionPage";
 import { TeamPage } from "./pages/Team/TeamPage";
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/news/:slug" element={<NewsArticlePage />} />
         <Route path="/solutions/uhd-conversion" element={<UhdConversionPage />} />
         <Route path="/testing-services" element={<TestingServicesPage />} />
         <Route path="/team" element={<TeamPage />} />

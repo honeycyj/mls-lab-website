@@ -43,20 +43,22 @@ export function HomeMediaSection() {
 
       <div className="media-cards">
         {mediaCards.map((card, index) => (
-          <PageReveal as="article" key={card.title} className="media-card" delay={0.08 + index * 0.08}>
-            <div className="media-card__media">
-              <img src={card.image} alt="" />
-            </div>
-            <div className="media-card__body">
-              <div className="media-card__copy">
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
+          <PageReveal key={card.title} delay={0.08 + index * 0.08}>
+            <EditableLinkAnchor className="media-card" href={card.href} aria-label={card.title}>
+              <div className="media-card__media">
+                <img src={card.image} alt="" />
               </div>
-              <div className="media-card__meta">
-                <span>{card.date}</span>
-                <EditableLinkAnchor href={card.href}>{card.cta}</EditableLinkAnchor>
+              <div className="media-card__body">
+                <div className="media-card__copy">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </div>
+                <div className="media-card__meta">
+                  <span>{card.date}</span>
+                  <span className="media-card__cta">{card.cta}</span>
+                </div>
               </div>
-            </div>
+            </EditableLinkAnchor>
           </PageReveal>
         ))}
       </div>
