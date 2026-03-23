@@ -1,3 +1,5 @@
+import "./partnerLogoStrip.css";
+
 export type PartnerLogoItem = {
   alt: string;
   src: string;

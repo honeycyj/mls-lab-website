@@ -1,4 +1,5 @@
 import { PageIntro } from "../PageMotion/PageMotion";
+import "./pageSectionIntro.css";
 
 type PageSectionIntroProps = {
   className?: string;

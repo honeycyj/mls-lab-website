@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import type { CSSProperties } from "react";
+import "./interactiveFeatureCard.css";
 import { PlusIcon } from "../Icons/PlusIcon";
 
 const interactiveFeatureCardEaseOut = [0, 0.62, 0.5, 1] as const;

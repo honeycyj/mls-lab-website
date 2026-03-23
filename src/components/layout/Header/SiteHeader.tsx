@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { Button } from "../../foundation/Button/Button";
+import "./siteHeader.css";
 import { IndustryMegaMenu } from "./IndustryMegaMenu";
 import { headerNavItems } from "./headerContent";
 import { NavDropdown } from "./NavDropdown";

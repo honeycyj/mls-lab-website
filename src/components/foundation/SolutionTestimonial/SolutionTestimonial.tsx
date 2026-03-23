@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import "./solutionTestimonial.css";
 
 export type SolutionTestimonialData = {
   activeDot?: number;

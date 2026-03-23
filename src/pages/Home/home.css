@@ -286,6 +286,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   max-height: calc(var(--line-height-heading-03) * 2);
 }
@@ -346,7 +347,6 @@
 }
 
 .media-card__body h3,
-.capability-card h3,
 .solutions-copy h3 {
   font-family: var(--font-family-display);
   font-size: var(--font-size-heading-03);
@@ -355,7 +355,6 @@
 }
 
 .media-card__body p,
-.capability-card p,
 .solutions-copy p {
   font-size: 14px;
   line-height: var(--line-height-body-02);
@@ -367,6 +366,7 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
 }
 
@@ -397,67 +397,6 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
-}
-
-.capability-card {
-  min-height: 308px;
-  background: var(--interactive-card-surface, var(--panel, var(--color-gray-surface)));
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-}
-
-.capability-card__overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--interactive-card-hover-surface, var(--brand-purple, var(--color-brand-01)));
-  z-index: 0;
-}
-
-.capability-card__content {
-  position: relative;
-  z-index: 1;
-  min-height: 308px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.capability-card__heading {
-  display: grid;
-  row-gap: 32px;
-}
-
-.capability-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.capability-card__icon {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #bec3cb;
-  color: var(--interactive-card-icon-color, var(--muted, var(--text-default)));
-  line-height: 0;
-  will-change: transform;
-}
-
-.capability-card__icon svg {
-  display: block;
-}
-
-.capability-card__footer a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  pointer-events: auto;
 }
 
 .capability-explore-card {
@@ -972,7 +911,6 @@
   }
 
   .media-aside__links a,
-  .capability-card h3,
   .solutions-copy h3 {
     font-size: 18px;
     line-height: 26px;

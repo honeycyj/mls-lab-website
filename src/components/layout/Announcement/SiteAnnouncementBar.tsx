@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { siteAnnouncement } from "../../../content/site/announcement";
+import "./siteAnnouncementBar.css";
 
 const ANNOUNCEMENT_EXIT_EASE = [0.22, 1, 0.36, 1] as const;
 

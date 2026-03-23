@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
+import "./button.css";
 
 export type ButtonVariant = "primary" | "secondary" | "text" | "accent";
 export type ButtonTone = "default" | "inverse";

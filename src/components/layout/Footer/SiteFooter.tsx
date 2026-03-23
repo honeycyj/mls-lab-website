@@ -1,6 +1,7 @@
 import {
   siteFooterContent,
 } from "../../../content/site/footer";
+import "./siteFooter.css";
 
 export function SiteFooter() {
   return (
