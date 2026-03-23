@@ -37,7 +37,6 @@ export const testingServicesPageContent = {
     items: testingQualificationItems,
   },
   services: {
-    title: "提供各类测试认证服务",
     cards: testingServiceCards,
   },
   cta: {

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useAnimationFrame, useMotionValue, useReducedMotion } from "motion/react";
 import { PageReveal } from "../../../components/foundation/PageMotion/PageMotion";
+import { SectionHeading } from "../../../components/foundation/SectionHeading/SectionHeading";
 
 type HomeEnvironmentSectionProps = {
   images: string[];
@@ -293,16 +294,22 @@ export function HomeEnvironmentSection({ images }: HomeEnvironmentSectionProps) 
 
   return (
     <PageReveal as="section" className="section section--environment">
-      <PageReveal className="section__heading section__heading--wide environment__heading" delay={0.04}>
-        <h2>实验室环境</h2>
-        <div className="environment__controls">
-          <button className="environment__control" type="button" aria-label="上一张环境照片" onClick={() => animateToIndex(latestIndexRef.current - 1)}>
-            <EnvironmentArrow direction="previous" />
-          </button>
-          <button className="environment__control" type="button" aria-label="下一张环境照片" onClick={() => animateToIndex(latestIndexRef.current + 1)}>
-            <EnvironmentArrow direction="next" />
-          </button>
-        </div>
+      <PageReveal delay={0.04}>
+        <SectionHeading
+          aside={
+            <div className="environment__controls">
+              <button className="environment__control" type="button" aria-label="上一张环境照片" onClick={() => animateToIndex(latestIndexRef.current - 1)}>
+                <EnvironmentArrow direction="previous" />
+              </button>
+              <button className="environment__control" type="button" aria-label="下一张环境照片" onClick={() => animateToIndex(latestIndexRef.current + 1)}>
+                <EnvironmentArrow direction="next" />
+              </button>
+            </div>
+          }
+          className="environment__heading"
+          layout="split"
+          title="实验室环境"
+        />
       </PageReveal>
       <div className="environment__viewport">
         <motion.div ref={galleryRef} className="environment__gallery" style={{ x: trackX }}>

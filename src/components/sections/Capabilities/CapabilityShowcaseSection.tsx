@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { InteractiveFeatureCard } from "../../foundation/InteractiveFeatureCard/InteractiveFeatureCard";
+import { SectionHeading } from "../../foundation/SectionHeading/SectionHeading";
 import { CapabilityExploreMoreCard } from "./CapabilityExploreMoreCard";
 import { capabilityEaseOut, type CapabilityCardData } from "./types";
 
@@ -11,6 +12,9 @@ type CapabilityShowcaseSectionProps = {
   description?: string;
   gridClassName?: string;
   headingClassName?: string;
+  headingAside?: ReactNode;
+  headingAlign?: "left" | "center";
+  headingLayout?: "stacked" | "split";
   id?: string;
   title: string;
 };
@@ -20,7 +24,10 @@ export function CapabilityShowcaseSection({
   className,
   description,
   gridClassName,
+  headingAlign,
+  headingAside,
   headingClassName,
+  headingLayout,
   id,
   title,
 }: CapabilityShowcaseSectionProps) {
@@ -36,12 +43,15 @@ export function CapabilityShowcaseSection({
 
   return (
     <motion.section className={className} id={id} {...reveal()}>
-      <motion.div className={headingClassName} {...reveal(0.04)}>
-        <div>
-          <h2>{title}</h2>
-          {description ? <p>{description}</p> : null}
-        </div>
-        <span aria-hidden="true">↓</span>
+      <motion.div {...reveal(0.04)}>
+        <SectionHeading
+          align={headingAlign}
+          aside={headingAside}
+          className={headingClassName}
+          layout={headingLayout}
+          subtitle={description}
+          title={title}
+        />
       </motion.div>
 
       <div className={gridClassName}>

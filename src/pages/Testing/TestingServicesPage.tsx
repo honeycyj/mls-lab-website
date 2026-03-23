@@ -5,6 +5,10 @@ import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { testingServicesPageContent } from "./data/testingServicesContent";
 
+const testingServicesSectionContent = {
+  title: "提供各类测试认证服务",
+};
+
 export function TestingServicesPage() {
   return (
     <div className="testing-page">
@@ -56,8 +60,14 @@ export function TestingServicesPage() {
           className="testing-services"
           gridClassName="capability-grid testing-services__grid"
           headingClassName="testing-services__heading"
+          headingAside={
+            <span className="testing-services__indicator" aria-hidden="true">
+              ↓
+            </span>
+          }
+          headingLayout="split"
           id="services"
-          title={testingServicesPageContent.services.title}
+          title={testingServicesSectionContent.title}
         />
 
         <section className="testing-contact" id="testing-contact">

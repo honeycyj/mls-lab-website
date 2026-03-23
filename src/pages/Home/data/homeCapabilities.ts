@@ -3,12 +3,6 @@ import type { CapabilityCardData } from "../../../components/sections/Capabiliti
 const capabilityInquiryHref = (topic: string) =>
   `mailto:honeycyj@live.com?subject=${encodeURIComponent(`能力咨询 - ${topic}`)}`;
 
-export const homeCapabilitiesSection = {
-  title: "实验室技术原子能力与布局",
-  description:
-    "围绕声音与影像的生成、编码、传输与重建机制，我们构建跨学科技术体系，致力于提升沉浸式听觉与视觉体验的真实度、空间感与表达力。",
-};
-
 export const homeCapabilitiesCards: CapabilityCardData[] = [
   {
     title: "视频技术",

@@ -161,19 +161,10 @@
 }
 
 .testing-services__heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   margin-bottom: 72px;
 }
 
-.testing-services__heading h2 {
-  font-size: 36px;
-  line-height: 50px;
-}
-
-.testing-services__heading span {
+.testing-services__indicator {
   font-size: 38px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.85);
@@ -300,11 +291,10 @@
   }
 
   .testing-services__heading {
-    align-items: flex-start;
     margin-bottom: 40px;
   }
 
-  .testing-services__heading span {
+  .testing-services__indicator {
     display: none;
   }
 

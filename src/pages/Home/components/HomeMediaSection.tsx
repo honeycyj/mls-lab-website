@@ -1,3 +1,4 @@
+import { SectionHeading } from "../../../components/foundation/SectionHeading/SectionHeading";
 import { PageReveal } from "../../../components/foundation/PageMotion/PageMotion";
 import {
   mediaCards,
@@ -7,12 +8,16 @@ import {
 } from "../homePageContent";
 import { EditableLinkAnchor } from "./EditableLinkAnchor";
 
+const homeMediaSectionContent = {
+  title: "媒体聚焦",
+  subtitle: "了解实验室最新科研动态、媒体活动",
+};
+
 export function HomeMediaSection() {
   return (
     <PageReveal as="section" className="section section--media" id="media">
-      <PageReveal className="section__heading" delay={0.04}>
-        <h2>媒体聚焦</h2>
-        <p>了解实验室最新科研动态、媒体活动</p>
+      <PageReveal delay={0.04}>
+        <SectionHeading title={homeMediaSectionContent.title} subtitle={homeMediaSectionContent.subtitle} />
       </PageReveal>
 
       <div className="media-grid">

@@ -1,12 +1,18 @@
 import { Button } from "../../components/foundation/Button/Button";
 import { CountUpStat } from "../../components/foundation/CountUpStat/CountUpStat";
 import { PageIntro, PageReveal } from "../../components/foundation/PageMotion/PageMotion";
+import { SectionHeading } from "../../components/foundation/SectionHeading/SectionHeading";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { HomeCapabilitiesSection } from "./components/HomeCapabilitiesSection";
 import { HomeEnvironmentSection } from "./components/HomeEnvironmentSection";
 import { HomeMediaSection } from "./components/HomeMediaSection";
 import { awardLogos, environmentImages, solutionTabs, teamStats } from "./homePageContent";
+
+const solutionsSectionContent = {
+  title: "音视频各领域解决方案",
+  subtitle: "从基础研究到产业应用的全链路创新体系",
+};
 
 export function HomePage() {
   return (
@@ -56,9 +62,12 @@ export function HomePage() {
         </section>
 
         <PageReveal as="section" className="section section--solutions" id="solutions">
-          <PageReveal className="section__heading section__heading--center" delay={0.04}>
-            <h2>音视频各领域解决方案</h2>
-            <p>从基础研究到产业应用的全链路创新体系</p>
+          <PageReveal delay={0.04}>
+            <SectionHeading
+              align="center"
+              title={solutionsSectionContent.title}
+              subtitle={solutionsSectionContent.subtitle}
+            />
           </PageReveal>
 
           <PageReveal className="solutions-panel" delay={0.08}>

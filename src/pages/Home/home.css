@@ -20,7 +20,6 @@
 }
 
 .media-card__body,
-.section__heading p,
 .hero__description,
 .solutions-copy p {
   font-family: var(--font-family-body);
@@ -122,14 +121,6 @@
   padding: 72px 0;
 }
 
-.section__heading {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 32px;
-}
-
-.section__heading h2,
 .awards__inner h2,
 .contact-cta__inner h2,
 .story-band__inner h2 {
@@ -139,29 +130,9 @@
   font-weight: 400;
 }
 
-.section__heading p {
-  max-width: 785px;
-  color: var(--muted);
-  font-size: var(--font-size-body-02);
-  line-height: var(--line-height-body-02);
-  letter-spacing: var(--letter-spacing-body-02);
-}
-
-.section__heading--wide {
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.section__heading--wide > span {
+.home-capabilities-section__indicator {
   font-size: 48px;
   line-height: 24px;
-}
-
-.section__heading--center {
-  text-align: center;
-  align-items: center;
 }
 
 .section--media {
@@ -861,8 +832,7 @@
     align-items: flex-start;
   }
 
-  .media-lead__overlay,
-  .section__heading--wide {
+  .media-lead__overlay {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -899,7 +869,6 @@
 
 @media (max-width: 640px) {
   .hero h1,
-  .section__heading h2,
   .story-band__inner h2,
   .contact-cta__inner h2,
   .awards__inner h2 {

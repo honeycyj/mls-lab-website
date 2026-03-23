@@ -1,9 +1,14 @@
 import { Button } from "../../components/foundation/Button/Button";
 import { PageReveal } from "../../components/foundation/PageMotion/PageMotion";
 import { PageSectionIntro } from "../../components/foundation/PageSectionIntro/PageSectionIntro";
+import { SectionHeading } from "../../components/foundation/SectionHeading/SectionHeading";
 import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { archiveIssues, featuredIssue, voicePageIntro, type VoiceIssue } from "./data/voicePageContent";
+
+const voiceArchiveSectionContent = {
+  title: "往期季刊",
+};
 
 function VoiceIssueActions({ actions }: { actions: VoiceIssue["actions"] }) {
   return (
@@ -64,8 +69,12 @@ export function VoicePage() {
         </section>
 
         <section className="voice-page__archive">
-          <PageReveal as="h2" className="voice-page__archive-title" delay={0.08}>
-            往期季刊
+          <PageReveal delay={0.08}>
+            <SectionHeading
+              align="center"
+              className="voice-page__archive-heading"
+              title={voiceArchiveSectionContent.title}
+            />
           </PageReveal>
           <div className="voice-page__archive-grid">
             {archiveIssues.map((issue, index) => (
