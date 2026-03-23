@@ -16,14 +16,16 @@ export function HomeMediaSection() {
       </PageReveal>
 
       <div className="media-grid">
-        <PageReveal as="article" className="media-lead" delay={0.08}>
-          <div className="media-lead__media">
-            <img src={mediaLead.image} alt="媒体报道" />
-          </div>
-          <div className="media-lead__overlay">
-            <h3>{mediaLead.title}</h3>
-            <EditableLinkAnchor href={mediaLead.href}>{mediaLead.cta}</EditableLinkAnchor>
-          </div>
+        <PageReveal delay={0.08}>
+          <EditableLinkAnchor className="media-lead" href={mediaLead.href} aria-label={mediaLead.title}>
+            <div className="media-lead__media">
+              <img src={mediaLead.image} alt="媒体报道" />
+            </div>
+            <div className="media-lead__overlay">
+              <h3>{mediaLead.title}</h3>
+              <span className="media-lead__cta">{mediaLead.cta}</span>
+            </div>
+          </EditableLinkAnchor>
         </PageReveal>
 
         <PageReveal as="aside" className="media-aside" delay={0.12}>
@@ -34,7 +36,7 @@ export function HomeMediaSection() {
           <div className="media-aside__links">
             {newsLinks.map((item, index) => (
               <EditableLinkAnchor key={`${item.label}-${index}`} href={item.href}>
-                {item.label}
+                <span className="media-aside__link-label">{item.label}</span>
               </EditableLinkAnchor>
             ))}
           </div>

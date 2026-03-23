@@ -1,5 +1,5 @@
 import { PageReveal } from "../../../components/foundation/PageMotion/PageMotion";
-import type { NewsArticleBlock } from "../data/newsArticles";
+import type { NewsArticleBlock } from "../data/newsSchema";
 
 type NewsArticleContentProps = {
   blocks: NewsArticleBlock[];

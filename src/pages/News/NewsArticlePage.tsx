@@ -4,16 +4,16 @@ import { SiteFooter } from "../../components/layout/Footer/SiteFooter";
 import { SiteHeader } from "../../components/layout/Header/SiteHeader";
 import { NotFoundPage } from "../NotFound/NotFoundPage";
 import { NewsArticleContent } from "./components/NewsArticleContent";
-import { newsArticlesBySlug } from "./data/newsArticles";
+import { getNewsArticleBySlug } from "./data/newsRepository";
 
 export function NewsArticlePage() {
   const { slug } = useParams();
 
-  if (!slug || !newsArticlesBySlug[slug]) {
+  const article = slug ? getNewsArticleBySlug(slug) : undefined;
+
+  if (!article) {
     return <NotFoundPage />;
   }
-
-  const article = newsArticlesBySlug[slug];
 
   return (
     <div className="news-page">
