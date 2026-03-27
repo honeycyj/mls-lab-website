@@ -17,7 +17,7 @@ export const headerNavItems: HeaderNavItem[] = [
     menuItems: [
       { label: "实验室简介", href: "/about" },
       { label: "管理团队", href: "/team" },
-      { label: "联系我们" },
+      { label: "联系我们", href: "/contact" },
     ],
   },
   { label: "能力引擎", href: "#capabilities" },

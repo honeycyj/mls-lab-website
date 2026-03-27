@@ -12,7 +12,7 @@ export type FooterSocialLinkItem = FooterLinkItem & {
 
 const primaryLinks: FooterLinkItem[] = [
   { label: "关于我们", href: "/about" },
-  { label: "联系我们", href: "/#contact" },
+  { label: "联系我们", href: "/contact" },
   { label: "招聘精英", href: "/team" },
 ];
 

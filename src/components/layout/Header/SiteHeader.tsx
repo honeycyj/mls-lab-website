@@ -64,7 +64,7 @@ export function SiteHeader() {
   const isHome = location.pathname === "/";
   const homeHref = isHome ? "#top" : "/";
   const solutionsHref = isHome ? "#solutions" : "/#solutions";
-  const contactHref = isHome ? "#contact" : "/#contact";
+  const contactHref = "/contact";
   const [headerOffsetY, setHeaderOffsetY] = useState(0);
   const [isRevealing, setIsRevealing] = useState(false);
   const [isIndustryMenuOpen, setIsIndustryMenuOpen] = useState(false);

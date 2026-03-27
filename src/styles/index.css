@@ -7,6 +7,7 @@
 /* Page-level styles only */
 @import "../pages/Home/home.css";
 @import "../pages/About/about.css";
+@import "../pages/Contact/contact.css";
 @import "../pages/Solutions/solutions.css";
 @import "../pages/Team/team.css";
 @import "../pages/Testing/testing.css";
