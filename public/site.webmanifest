@@ -1,0 +1,8 @@
+{
+  "name": "Malanshan Audio & Video Laboratory",
+  "short_name": "MLS Lab",
+  "theme_color": "#9146FF",
+  "background_color": "#9146FF",
+  "display": "browser",
+  "start_url": "/"
+}
